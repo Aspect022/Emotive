@@ -1,0 +1,91 @@
+# EMOTIV EEG + Web-Based Experiment Analysis Pipeline
+# Analysis Configuration — DO NOT POPULATE UNCERTAIN VALUES
+
+device:
+  model: "EPOC_X"               # KNOWN — confirmed from file inspection
+  electrode_count: 14            # KNOWN
+  electrode_names:               # KNOWN — from CSV headers
+    - AF3
+    - F7
+    - F3
+    - FC5
+    - T7
+    - P7
+    - O1
+    - O2
+    - P8
+    - T8
+    - FC6
+    - F4
+    - F8
+    - AF4
+  hardware_highpass_hz: 0.16     # KNOWN — EPOC X hardware spec
+  hardware_lowpass_hz: 43.0      # KNOWN — EPOC X hardware spec
+  hardware_notch_hz: [50, 60]    # KNOWN — EPOC X hardware spec
+  reference: "CMS_DRL"           # KNOWN — EPOC X hardware
+
+sampling:
+  eeg_hz: 128                    # KNOWN — from file metadata; some files may be 256
+  motion_hz: 32                  # KNOWN — from file metadata
+  band_power_hz: 8               # KNOWN — EMOTIV proprietary output rate
+
+synchronization:
+  method: "session_boundary"     # INFERRED — no per-trial timestamps available
+  # method options: session_boundary | keystroke_marker | linear_regression | NONE
+  max_allowed_residual_ms: null  # UNKNOWN — to be determined after sync attempt
+  confidence_level: "LOW_MODERATE"
+  per_trial_timestamps_available: false  # KNOWN — not in current export
+
+preprocessing:
+  # These are NOT fixed — will be refined after raw data inspection
+  highpass_hz: 1.0               # Candidate — above hardware floor; removes slow drift
+  lowpass_hz: 40.0               # Candidate — below hardware ceiling; removes line noise
+  notch_hz: null                 # EPOC X has hardware notch; apply only if residual noise found
+  reference: "common_average"    # Standard for EPOC X post-processing
+  detrend: true
+  bad_channel_cq_threshold: 2    # Candidate — channels with CQ < 2 flagged as bad
+  interpolated_fraction_threshold: 0.20  # Candidate — >20% interpolated = flag channel
+
+epoching:
+  # Cannot be specified without reliable per-trial timestamps
+  # These are placeholders ONLY — will be refined if sync is established
+  stimulus_tmin_s: null          # UNKNOWN — requires per-trial timestamps
+  stimulus_tmax_s: null          # UNKNOWN
+  baseline_tmin_s: null          # UNKNOWN
+  baseline_tmax_s: null          # UNKNOWN
+  # Session-level windows only (for baseline analysis):
+  baseline_label: "Eyes_Opened"  # From marker files
+  eyes_closed_label: "Eyes_Closed"
+
+features:
+  # Only features with scientific basis for this task type
+  bands:
+    theta: [4, 7]                # Frontal midline theta — working memory
+    alpha: [8, 13]               # Posterior alpha — attention/relaxation
+    beta_low: [14, 20]           # Beta-L — active cognition
+    beta_high: [21, 30]          # Beta-H — arousal
+    # Gamma excluded — above reliable EPOC X range
+  use_absolute_power: true
+  use_relative_power: true       # Normalise within-subject
+  use_log_power: true            # Stabilise variance
+  use_hjorth: true               # Robust time-domain features
+  use_spectral_entropy: true     # Broadband complexity
+  use_erp: false                 # CANNOT compute without precise trial timing
+
+statistics:
+  alpha: 0.05
+  correction_method: "fdr"       # FDR correction for multiple comparisons
+  model_primary: "linear_mixed_effects"  # participant as random effect
+  min_trials_per_condition: 10   # Gate: below this, cannot analyse condition
+
+machine_learning:
+  enabled: false                 # NOT enabled at this stage
+  # Will be revisited after participant count, signal quality, and sync are established
+  justify_before_enabling: true
+
+quality_control:
+  min_recording_duration_min: 5  # Sessions shorter than this are suspect
+  max_interpolated_fraction: 0.20
+  min_contact_quality: 2
+  min_usable_epochs_per_condition: 10
+  min_participants_for_stats: 10  # Minimum for mixed-effects to be meaningful

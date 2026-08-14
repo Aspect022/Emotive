@@ -1,0 +1,29 @@
+source,file,field_name,canonical_name,data_type,unit,description,timestamp_type,participant_level,session_level,trial_level,raw_or_derived,source_system,scientific_interpretation
+Supabase,activity_results_rows.csv,id,session_id,UUID,—,Unique test session identifier,none,False,True,False,raw,Supabase/web,Session primary key
+Supabase,activity_results_rows.csv,participant_id,participant_id,UUID,—,Participant foreign key linking to participants table,none,True,True,True,raw,Supabase/web,
+Supabase,activity_results_rows.csv,activity_type,task_type,string,—,"Type of cognitive task (arithmetic, comprehension, etc.)",none,False,True,True,raw,Supabase/web,
+Supabase,activity_results_rows.csv,score,session_score,int,correct answers,Total correct answers in session,none,False,True,False,raw,Supabase/web,
+Supabase,activity_results_rows.csv,total_questions,total_questions,int,questions,Total questions presented,none,False,True,False,raw,Supabase/web,
+Supabase,activity_results_rows.csv,answers,trial_answers_json,JSON array,—,"Per-question answer array: correct, category, selected, timedOut, timeTaken (int seconds), difficulty, questionId, questionText",none,False,False,True,raw,Supabase/web,Must be expanded to one row per question/trial for trial-level analysis
+Supabase,activity_results_rows.csv,started_at,session_start_utc,ISO datetime,UTC,Session start timestamp (server-side),absolute_utc,False,True,False,raw,Supabase/web,Primary synchronization anchor candidate
+Supabase,activity_results_rows.csv,completed_at,session_end_utc,ISO datetime,UTC,Session completion timestamp (server-side),absolute_utc,False,True,False,raw,Supabase/web,
+Supabase,activity_results_rows.csv,time_taken_seconds,session_duration_s,int,seconds,Total test duration in seconds,relative,False,True,False,raw,Supabase/web,
+Supabase,activity_results_rows.csv (answers field),timeTaken,trial_time_taken_s,int,seconds,Time taken to answer this question (integer seconds — LOW resolution),relative,False,False,True,raw,Supabase/web,LIMITATION: 1-second granularity. Cannot derive precise stimulus onset. Not a true RT measure.
+Supabase,activity_results_rows.csv (answers field),correct,correct_answer_index,int,option index,Index of correct answer (0-based),none,False,False,True,raw,Supabase/web,
+Supabase,activity_results_rows.csv (answers field),selected,selected_answer_index,int,option index,Index selected by participant (0-based),none,False,False,True,raw,Supabase/web,
+Supabase,activity_results_rows.csv (answers field),difficulty,difficulty,string,easy/medium/hard,Question difficulty level,none,False,False,True,raw,Supabase/web,
+EMOTIV_CSV,*.md.bp.csv / *.md.csv,Timestamp,eeg_timestamp_unix,float64,Unix epoch seconds,EMOTIV device clock timestamp for each EEG sample,absolute_unix_device_clock,False,True,True,raw,EmotivPRO,
+EMOTIV_CSV,*.md.bp.csv / *.md.csv,EEG.Counter,sample_counter,int,counts (0–255 rolling),"Rolling sample counter, resets to 0 after 255",relative,False,True,False,raw,EmotivPRO,
+EMOTIV_CSV,*.md.bp.csv / *.md.csv,EEG.Interpolated,interpolated_flag,binary,0=raw/1=interpolated,EMOTIV firmware interpolation flag — 1 indicates sample was reconstructed,none,False,False,True,derived,EmotivPRO,Interpolated samples should be excluded from artifact-sensitive analyses
+EMOTIV_CSV,*.md.bp.csv / *.md.csv,EEG.AF3 ... EEG.AF4,eeg_channel_uv,float32,µV,"Raw EEG voltage for 14 electrodes (AF3, F7, F3, FC5, T7, P7, O1, O2, P8, T8, FC6, F4, F8, AF4)",none,False,False,True,raw,EmotivPRO,Primary EEG signal. Hardware-filtered 0.16–43 Hz. Reference: CMS/DRL.
+EMOTIV_CSV,*.md.bp.csv / *.md.csv,CQ.AF3 ... CQ.Overall,contact_quality,int/float,0–4 per electrode; 0–100 overall,"Electrode contact quality. 0=no contact, 4=excellent. Overall is 0–100.",none,False,True,True,derived,EmotivPRO,Quality control gate. Channels with CQ<2 should be flagged.
+EMOTIV_CSV,*.md.bp.csv / *.md.csv,POW.*.Theta/Alpha/BetaL/BetaH/Gamma,proprietary_band_power,float,arbitrary (EMOTIV proprietary),EMOTIV proprietary band-power estimates at 8 Hz. Algorithm undisclosed.,none,False,False,False,derived,EmotivPRO,CAUTION: Not validated psychological constructs. Use raw EEG for scientific analysis.
+EMOTIV_CSV,*.md.bp.csv / *.md.csv,"MarkerIndex, MarkerType, MarkerValueInt",marker_in_stream,int/string,—,In-stream event markers at sample level. Populated when experimenter inserts a marker.,sample_aligned,False,False,True,raw,EmotivPRO,Potential synchronization anchor if markers correspond to web test events
+EMOTIV_MARKER_CSV,*_intervalMarker.csv,timestamp,marker_timestamp_unix,float64,Unix epoch seconds (same clock as EEG),Absolute Unix timestamp of each inserted marker,absolute_unix_device_clock,False,True,True,raw,EmotivPRO,Key synchronization anchor. Must be matched to web session timestamps.
+EMOTIV_MARKER_CSV,*_intervalMarker.csv,type,marker_label,string,—,"Marker label as entered by experimenter (e.g., Eyes_Opened, Eyes_Closed)",none,False,False,True,raw,EmotivPRO,
+Supabase,participants_rows (1).csv,id,participant_id,UUID,—,Participant unique identifier (links to activity_results.participant_id),none,True,True,True,raw,Supabase,
+Supabase,participants_rows (1).csv,full_name,participant_name,string,—,Participant full name (PII — must be anonymized),none,True,False,False,raw,Supabase,
+Supabase,participants_rows (1).csv,age,age_years,int,years,Age at registration,none,True,False,False,raw,Supabase,
+Supabase,participants_rows (1).csv,gender,gender,string,male/female/other,Self-reported gender,none,True,False,False,raw,Supabase,
+Supabase,participants_rows (1).csv,consent_given,consent_given,boolean,—,Whether participant gave informed consent,none,True,False,False,raw,Supabase,
+Supabase,participants_rows (1).csv,total_session_seconds,total_platform_seconds,int,seconds,Total time spent on platform across all sessions,relative,True,False,False,derived,Supabase,
