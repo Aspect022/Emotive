@@ -1,0 +1,41 @@
+{
+  "EEGNet": {
+    "n_params": 6197,
+    "best_val_f1": 0.2256,
+    "test_accuracy": 0.1797,
+    "test_macro_f1": 0.1789,
+    "test_f1_per_class": [
+      0.2039,
+      0.2057,
+      0.1704,
+      0.1412,
+      0.1733
+    ]
+  },
+  "TinyCNN": {
+    "n_params": 155589,
+    "best_val_f1": 0.2415,
+    "test_accuracy": 0.2381,
+    "test_macro_f1": 0.2211,
+    "test_f1_per_class": [
+      0.1983,
+      0.0943,
+      0.2205,
+      0.31,
+      0.2821
+    ]
+  },
+  "TinyLSTM": {
+    "n_params": 140933,
+    "best_val_f1": 0.23,
+    "test_accuracy": 0.1861,
+    "test_macro_f1": 0.1837,
+    "test_f1_per_class": [
+      0.2353,
+      0.2222,
+      0.1354,
+      0.1472,
+      0.1786
+    ]
+  }
+}
