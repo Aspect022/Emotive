@@ -48,9 +48,15 @@ def load_data():
     train = df[df["split"].isin(["train","val"])]
     test  = df[df["split"] == "test"]
 
-    X_tr = train[feat_cols].fillna(0).values.astype(np.float64)
+    from sklearn.impute import SimpleImputer
+    imputer = SimpleImputer(strategy="median")
+
+    X_tr_raw = np.nan_to_num(train[feat_cols].values.astype(np.float64), nan=0.0, posinf=0.0, neginf=0.0)
+    X_te_raw = np.nan_to_num(test[feat_cols].values.astype(np.float64), nan=0.0, posinf=0.0, neginf=0.0)
+
+    X_tr = imputer.fit_transform(X_tr_raw)
     y_tr = train["task_label"].values.astype(int)
-    X_te = test[feat_cols].fillna(0).values.astype(np.float64)
+    X_te = imputer.transform(X_te_raw)
     y_te = test["task_label"].values.astype(int)
     return X_tr, y_tr, X_te, y_te, feat_cols
 

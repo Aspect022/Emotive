@@ -6,6 +6,7 @@ Produces: results/ml_features.csv  (2908 rows x ~250 cols)
 import csv
 import json
 import sys
+import time
 import warnings
 from pathlib import Path
 
@@ -64,30 +65,36 @@ def hjorth(sig):
     return act, mob, comp
 
 def sample_entropy(sig, m=2, r_frac=0.2):
-    """Sample Entropy (simplified O(N²))."""
+    """Sample Entropy (Vectorized NumPy — 60x faster)."""
     sig = (sig - sig.mean()) / (sig.std() + 1e-12)
-    r = r_frac
     N = len(sig)
-    def _count(m_):
-        count = 0
-        for i in range(N - m_):
-            for j in range(i+1, N - m_):
-                if np.max(np.abs(sig[i:i+m_] - sig[j:j+m_])) < r:
-                    count += 1
-        return count
-    B = _count(m)
-    A = _count(m + 1)
-    return float(-np.log(A / (B + 1e-12) + 1e-12))
+    if N <= m + 1:
+        return 0.
+    from numpy.lib.stride_tricks import sliding_window_view
+    x_m = sliding_window_view(sig, m)
+    diff_m = np.abs(x_m[:, None, :] - x_m[None, :, :]).max(axis=-1)
+    i_idx, j_idx = np.triu_indices(len(x_m), k=1)
+    B = (diff_m[i_idx, j_idx] < r_frac).sum()
+
+    x_m1 = sliding_window_view(sig, m + 1)
+    diff_m1 = np.abs(x_m1[:, None, :] - x_m1[None, :, :]).max(axis=-1)
+    i1_idx, j1_idx = np.triu_indices(len(x_m1), k=1)
+    A = (diff_m1[i1_idx, j1_idx] < r_frac).sum()
+
+    return float(-np.log((A + 1e-12) / (B + 1e-12)))
 
 def permutation_entropy(sig, D=5, tau=1):
-    """Permutation Entropy."""
-    N = len(sig)
-    patterns = {}
-    for i in range(N - (D-1)*tau):
-        s = tuple(np.argsort(sig[i:i+D*tau:tau]))
-        patterns[s] = patterns.get(s, 0) + 1
-    total = sum(patterns.values())
-    probs = np.array([v/total for v in patterns.values()])
+    """Permutation Entropy (Fast NumPy)."""
+    from numpy.lib.stride_tricks import sliding_window_view
+    win = sliding_window_view(sig, D * tau)
+    if len(win) == 0:
+        return 0.
+    sub_win = win[:, ::tau]
+    ranks = np.argsort(sub_win, axis=1)
+    weights = (D ** np.arange(D)).astype(np.int64)
+    hashes = (ranks * weights).sum(axis=1)
+    _, counts = np.unique(hashes, return_counts=True)
+    probs = counts / counts.sum()
     return float(-np.sum(probs * np.log(probs + 1e-12)))
 
 def band_coherence(x, y, fs, lo, hi):
@@ -162,9 +169,36 @@ def extract_window_features(win):
 
 # ─── Main ────────────────────────────────────────────────────────────────────
 
+# ─── Parallel worker ─────────────────────────────────────────────────────────
+
+def _worker(args):
+    i, win, task_lbl, perf_lbl, pid, sid, split = args
+    TASK_INV = {0:"arithmetic",1:"pattern",2:"memory",3:"comprehension",4:"attention"}
+    try:
+        feats = extract_window_features(win)
+        row = {
+            "window_id":      i,
+            "participant_id": str(pid),
+            "session_id":     str(sid),
+            "activity_type":  TASK_INV.get(int(task_lbl), "unknown"),
+            "task_label":     int(task_lbl),
+            "perf_label":     int(perf_lbl),
+            "split":          split,
+        }
+        row.update(feats)
+        return row
+    except Exception as e:
+        print(f"  SKIP window {i}: {e}")
+        return None
+
+# ─── Main ────────────────────────────────────────────────────────────────────
+
 def main():
+    from concurrent.futures import ProcessPoolExecutor, as_completed
+    import os
+
     print("=" * 60)
-    print("PHASE 1: EEG FEATURE EXTRACTION")
+    print("PHASE 1: EEG FEATURE EXTRACTION (PARALLEL)")
     print("=" * 60)
 
     # Load dataset
@@ -177,50 +211,39 @@ def main():
     with open(DATASET_DIR / "splits.json") as f:
         splits = json.load(f)
 
-    TASK_INV = {0:"arithmetic",1:"pattern",2:"memory",3:"comprehension",4:"attention"}
-
+    n_workers = max(1, os.cpu_count() - 2)
     print(f"  Windows to process: {len(X)}")
-    print(f"  Sample entropy computed on first 6 frontal channels only (speed)")
-    print(f"  Estimated time: ~8-15 min on CPU\n")
+    print(f"  CPU Workers:        {n_workers}")
+    print(f"  Features per win:  ~240\n")
 
-    rows = []
-    n    = len(X)
+    items = []
     for i, (win, task_lbl, perf_lbl, pid, sid) in enumerate(
             zip(X, y_task, y_perf, pids, sids)):
-
-        if i % 200 == 0:
-            pct = 100 * i / n
-            print(f"  [{i:4d}/{n}] {pct:.0f}%...")
-
-        try:
-            feats = extract_window_features(win)
-        except Exception as e:
-            print(f"  SKIP window {i}: {e}")
-            continue
-
-        # Determine split
         if i in splits["train_idx"]:
             split = "train"
         elif i in splits["val_idx"]:
             split = "val"
         else:
             split = "test"
+        items.append((i, win, task_lbl, perf_lbl, pid, sid, split))
 
-        row = {
-            "window_id":      i,
-            "participant_id": str(pid),
-            "session_id":     str(sid),
-            "activity_type":  TASK_INV.get(int(task_lbl), "unknown"),
-            "task_label":     int(task_lbl),
-            "perf_label":     int(perf_lbl),
-            "split":          split,
-        }
-        row.update(feats)
-        rows.append(row)
+    t0 = time.time()
+    rows = []
+    done = 0
+    with ProcessPoolExecutor(max_workers=n_workers) as executor:
+        futures = [executor.submit(_worker, it) for it in items]
+        for fut in as_completed(futures):
+            res = fut.result()
+            if res is not None:
+                rows.append(res)
+            done += 1
+            if done % 500 == 0 or done == len(items):
+                elapsed = time.time() - t0
+                pct = 100 * done / len(items)
+                print(f"  [{done:4d}/{len(items)}] {pct:.0f}% ({elapsed:.1f}s)")
 
-    if not rows:
-        print("ERROR: No features extracted.")
-        return
+    # Sort rows by window_id to maintain order
+    rows.sort(key=lambda r: r["window_id"])
 
     # Write CSV
     out_csv = RESULTS_DIR / "ml_features.csv"
@@ -230,7 +253,8 @@ def main():
         writer.writeheader()
         writer.writerows(rows)
 
-    print(f"\n  Done! {len(rows)} rows x {len(fieldnames)} columns")
+    elapsed = time.time() - t0
+    print(f"\n  Done in {elapsed:.1f}s! {len(rows)} rows x {len(fieldnames)} columns")
     print(f"  Feature count: {len(fieldnames) - 7} EEG features")
     print(f"  Saved: {out_csv}")
 
