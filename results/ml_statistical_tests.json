@@ -1,0 +1,104 @@
+{
+  "dataset_summary": {
+    "n_total_subwindows": 37804,
+    "n_train": 30243,
+    "n_test": 7561,
+    "n_features": 252,
+    "n_classes": 5,
+    "chance_level_accuracy": 0.2
+  },
+  "models_performance": {
+    "LGBM_Tuned": {
+      "accuracy": 0.7334,
+      "accuracy_percent": "73.34%",
+      "macro_f1": 0.7256,
+      "cohen_kappa": 0.6576,
+      "accuracy_95_ci": "[72.32%, 74.38%]",
+      "macro_f1_95_ci": "[0.7145, 0.7359]"
+    },
+    "ExtraTrees_300": {
+      "accuracy": 0.711,
+      "accuracy_percent": "71.10%",
+      "macro_f1": 0.6994,
+      "cohen_kappa": 0.6254,
+      "accuracy_95_ci": "[69.99%, 72.11%]",
+      "macro_f1_95_ci": "[0.6877, 0.7099]"
+    },
+    "RandomForest_500": {
+      "accuracy": 0.668,
+      "accuracy_percent": "66.80%",
+      "macro_f1": 0.6491,
+      "cohen_kappa": 0.5686,
+      "accuracy_95_ci": "[65.73%, 67.89%]",
+      "macro_f1_95_ci": "[0.6369, 0.6601]"
+    }
+  },
+  "mcnemar_tests_vs_best": {
+    "LGBM_Tuned_vs_ExtraTrees_300": {
+      "b_model_a_only_correct": 741,
+      "c_model_b_only_correct": 572,
+      "chi2": 21.4958,
+      "p_value": 3.5460241039064755e-06,
+      "significant": true
+    },
+    "LGBM_Tuned_vs_RandomForest_500": {
+      "b_model_a_only_correct": 916,
+      "c_model_b_only_correct": 422,
+      "chi2": 181.651,
+      "p_value": 0.0,
+      "significant": true
+    }
+  },
+  "permutation_test_vs_chance": {
+    "observed_accuracy": 0.7334,
+    "chance_level_mean": 0.2211,
+    "chance_level_95_percentile": 0.2282,
+    "n_permutations": 1000,
+    "empirical_p_value": 0.000999000999000999,
+    "conclusion": "Model performs statistically significantly above chance level (p < 0.001)"
+  },
+  "bootstrap_confidence_intervals": {
+    "LGBM_Tuned": {
+      "accuracy_ci": {
+        "mean": 0.7335,
+        "std": 0.0052,
+        "ci_95_lower": 0.7232,
+        "ci_95_upper": 0.7438
+      },
+      "macro_f1_ci": {
+        "mean": 0.7256,
+        "std": 0.0054,
+        "ci_95_lower": 0.7145,
+        "ci_95_upper": 0.7359
+      }
+    },
+    "ExtraTrees_300": {
+      "accuracy_ci": {
+        "mean": 0.7111,
+        "std": 0.0053,
+        "ci_95_lower": 0.6999,
+        "ci_95_upper": 0.7211
+      },
+      "macro_f1_ci": {
+        "mean": 0.6994,
+        "std": 0.0057,
+        "ci_95_lower": 0.6877,
+        "ci_95_upper": 0.7099
+      }
+    },
+    "RandomForest_500": {
+      "accuracy_ci": {
+        "mean": 0.6681,
+        "std": 0.0054,
+        "ci_95_lower": 0.6573,
+        "ci_95_upper": 0.6789
+      },
+      "macro_f1_ci": {
+        "mean": 0.649,
+        "std": 0.006,
+        "ci_95_lower": 0.6369,
+        "ci_95_upper": 0.6601
+      }
+    }
+  }
+}
