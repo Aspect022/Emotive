@@ -266,12 +266,7 @@
         <div class="section-card" id="s2">
             <h2 class="text-xl font-bold mb-4 flex items-center"><span class="section-number">2</span> The Honest Problem: What's Missing</h2>
 
-            <h3 class="font-semibold text-base mt-4 mb-2">2.1 Mentor's Feedback</h3>
-            <div class="callout callout-warn">
-                <strong>"The project is highly innovative in concept. The whole idea is very good. But it's missing that one pinnacle or peak important thing that makes it stand out. Nothing is innovative or novel in the technique itself — it's very plain. We need to make something out of this."</strong>
-            </div>
-
-            <h3 class="font-semibold text-base mt-5 mb-2">2.2 Why the Current Work Doesn't Stand Out Yet</h3>
+            <h3 class="font-semibold text-base mt-5 mb-2"> Why the Current Work Doesn't Stand Out Yet</h3>
             <p class="text-sm leading-relaxed mb-3">Our ML baseline uses standard PSD + Differential Entropy features fed into LightGBM to produce a hard 5-class label. This is a well-established pipeline — dozens of published papers follow the same approach. Reviewers at top venues (IEEE T-NSRE, Journal of Neural Engineering) would raise four critical questions:</p>
             <table>
                 <thead><tr><th>Reviewer Question</th><th>Our Current Answer</th><th>Gap</th></tr></thead>
@@ -366,63 +361,13 @@
             </table>
         </div>
 
+        
+
         <!-- ═══════════════════════════════════════════════ -->
         <!-- SECTION 4 -->
         <!-- ═══════════════════════════════════════════════ -->
-        <div class="section-card" id="s4">
-            <h2 class="text-xl font-bold mb-4 flex items-center"><span class="section-number">4</span> Critical Evaluation of Prior Proposals</h2>
-
-            <p class="text-sm leading-relaxed mb-4">During Step 1 research, a "Tri-S²Former" tri-branch architecture was proposed. Before proceeding, we conducted an honest, researcher-level evaluation of each component. The key principle: <strong>every component must have a clear, defensible justification tied to a specific problem in our constraint set.</strong></p>
-
-            <table>
-                <thead><tr><th>Branch</th><th>Claim</th><th>Reality Check</th><th>Verdict</th></tr></thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Dynamic Graph Attention</strong></td>
-                        <td>Captures functional connectivity between 14 electrode nodes</td>
-                        <td>With only 14 nodes, the adjacency matrix is 14×14 = 196 learnable parameters. Graph Neural Networks are designed for hundreds to thousands of nodes. At 14 nodes, a standard attention mechanism achieves the same spatial modeling without graph abstraction overhead. Risk of overfitting edge weights.</td>
-                        <td class="verdict-maybe">⚠️ Unjustified complexity</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Riemannian SPD Manifold</strong></td>
-                        <td>Covariance matrices lie on SPD manifold; geodesic metrics strip inter-subject noise</td>
-                        <td>Mathematically correct and well-supported by 2024–2026 literature (Tibermacine et al., Jin et al., Gao &amp; Deng). 14×14 covariance matrices are the right dimensionality — stable to estimate, small enough for efficient manifold operations.</td>
-                        <td class="verdict-yes">✅ Genuinely justified</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Temporal Conformer + Wavelet</strong></td>
-                        <td>Multi-scale temporal modeling of neuro-oscillations</td>
-                        <td>Every EEG deep learning paper does temporal modeling. No specific argument for why multi-scale helps for these 5 cognitive tasks vs. standard temporal convolution.</td>
-                        <td class="verdict-no">❌ Generic, not novel</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="callout callout-info mt-4">
-                <strong>Lesson learned:</strong> The Tri-S²Former was engineer-optimized (stack impressive modules), not researcher-optimized (justify every component). Three branches triple the parameter count and overfitting risk on 37K samples without proven independent contribution. A simpler, well-justified architecture is stronger than a complex, unjustified one.
-            </div>
-
-            <h3 class="font-semibold text-base mt-5 mb-2">4.1 What the Research Literature Converges On</h3>
-            <p class="text-sm leading-relaxed mb-3">After reading 8 research documents across 4 AI research agents (Step 1: Consensus, ChatGPT, Gemini; Step 2: Claude, Consensus, ChatGPT, Gemini), the following findings are consistent:</p>
-            <table>
-                <thead><tr><th>Finding</th><th>Consensus Strength</th><th>Key Sources</th></tr></thead>
-                <tbody>
-                    <tr><td>Riemannian/SPD methods provide genuine inter-subject robustness</td><td><strong>Strong (all reports)</strong></td><td>Tibermacine 2026, Jin 2026, Gao &amp; Deng 2026</td></tr>
-                    <tr><td>Evidential Deep Learning enables calibrated uncertainty</td><td><strong>Strong (all Step 2)</strong></td><td>Sensoy 2018, Wu (TRUEE) 2025, Pandey 2025</td></tr>
-                    <tr><td>Deep Ensembles are the strongest practical UQ benchmark</td><td><strong>Strong</strong></td><td>Tveter 2026, Manivannan 2024</td></tr>
-                    <tr><td>CHC theory is the validated psychometric ground truth</td><td><strong>Strong (all Step 2)</strong></td><td>McGrew 2009, Keith &amp; Reynolds 2010</td></tr>
-                    <tr><td>O*NET provides the occupational mapping database</td><td><strong>Strong</strong></td><td>Rahim &amp; Basheer 2025, Alonso et al. 2025</td></tr>
-                    <tr><td>Direct "brain-to-career" claims lack empirical validity</td><td><strong>Strong caution</strong></td><td>Gottfredson 2003, GATB meta-analyses</td></tr>
-                    <tr><td>System must be positioned as advisory decision-support</td><td><strong>Strong (legal/ethical)</strong></td><td>EU AI Act 2024, EEOC 2024</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- ═══════════════════════════════════════════════ -->
-        <!-- SECTION 5 -->
-        <!-- ═══════════════════════════════════════════════ -->
         <div class="section-card" id="s5">
-            <h2 class="text-xl font-bold mb-4 flex items-center"><span class="section-number">5</span> The Real Novel Contribution</h2>
+            <h2 class="text-xl font-bold mb-4 flex items-center"><span class="section-number">4</span> The Real Novel Contribution</h2>
 
             <p class="text-sm leading-relaxed mb-4">Instead of claiming novelty through architectural complexity, we claim novelty through <strong>a coherent, end-to-end system that no prior work has demonstrated.</strong> The contribution is organized into three layers, each solving a distinct problem:</p>
 
@@ -449,12 +394,12 @@
         </div>
 
         <!-- ═══════════════════════════════════════════════ -->
-        <!-- SECTION 6 -->
+        <!-- SECTION 5 -->
         <!-- ═══════════════════════════════════════════════ -->
         <div class="section-card" id="s6">
-            <h2 class="text-xl font-bold mb-4 flex items-center"><span class="section-number">6</span> CogProfile-Net Architecture</h2>
+            <h2 class="text-xl font-bold mb-4 flex items-center"><span class="section-number">5</span> CogProfile-Net Architecture</h2>
 
-            <h3 class="font-semibold text-base mt-4 mb-3">6.1 Full Architecture Diagram</h3>
+            <h3 class="font-semibold text-base mt-4 mb-3">5.1 Full Architecture Diagram</h3>
             <p class="text-sm leading-relaxed mb-3">Every component has a <strong>clear, defensible justification</strong> tied to a specific problem in our constraint set. Nothing is included for impressiveness alone.</p>
 
             <!-- ARCHITECTURE VISUAL DIAGRAM -->
@@ -540,7 +485,7 @@
                 </div>
             </div>
 
-            <h3 class="font-semibold text-base mt-5 mb-2">6.2 Riemannian SPD Encoder — Mathematical Detail</h3>
+            <h3 class="font-semibold text-base mt-5 mb-2">5.2 Riemannian SPD Encoder — Mathematical Detail</h3>
             <p class="text-sm leading-relaxed mb-3">The core encoder operates on the <strong>Symmetric Positive Definite (SPD) manifold</strong> $\mathcal{S}_{++}^{14}$ rather than Euclidean space. This is not a design choice — it is a mathematical necessity. Spatial covariance matrices of EEG channels are inherently SPD, and applying Euclidean operations (standard CNNs, flat MLPs) distorts their intrinsic geometry.</p>
 
             <p class="text-sm leading-relaxed mb-2"><strong>Step 1 — Spatial Covariance Matrix:</strong></p>
@@ -560,7 +505,7 @@
                 <strong>Why this matters for inter-subject robustness:</strong> Variations in skull thickness, electrode impedance, and global amplitude scaling between participants manifest as linear transformations of the covariance matrix. Riemannian geodesic distances are invariant to such transformations — meaning the SPD encoder inherently strips away a large portion of the subject-specific "neural fingerprint" without any adversarial training or explicit domain adaptation.
             </div>
 
-            <h3 class="font-semibold text-base mt-5 mb-2">6.3 Evidential Deep Learning Head — Mathematical Detail</h3>
+            <h3 class="font-semibold text-base mt-5 mb-2">5.3 Evidential Deep Learning Head — Mathematical Detail</h3>
             <p class="text-sm leading-relaxed mb-3">Instead of standard softmax (which squashes logits into overconfident point estimates), the final layer outputs non-negative <strong>evidence</strong> values that parameterize a Dirichlet distribution over class probabilities:</p>
 
             <p class="text-sm mb-1"><strong>Evidence to Dirichlet parameters:</strong></p>
@@ -585,7 +530,7 @@
             <p class="text-sm mb-3">$$\mathcal{L}_{\text{EDL}} = \sum_{k=1}^{K} y_k \left(\psi(S) - \psi(\alpha_k)\right) + \lambda_t \cdot \text{KL}\left[\text{Dir}(\tilde{\boldsymbol{\alpha}}) \,\|\, \text{Dir}(\mathbf{1})\right]$$</p>
             <p class="text-sm text-stone-500 mb-3">where $\psi(\cdot)$ is the Digamma function, $\tilde{\alpha}_k = y_k + (1-y_k)\alpha_k$, and $\lambda_t = \min(1, t/10)$ anneals the KL regularizer over the first 10 epochs.</p>
 
-            <h3 class="font-semibold text-base mt-5 mb-2">6.4 Complete Loss Function</h3>
+            <h3 class="font-semibold text-base mt-5 mb-2">5.4 Complete Loss Function</h3>
             <p class="text-sm mb-3">$$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{EDL}}(\boldsymbol{\alpha}, \mathbf{y}) + \lambda_1 \mathcal{L}_{\text{aux}}^{\text{EEG-only}} + \lambda_2 \mathcal{L}_{\text{center}}$$</p>
             <table>
                 <thead><tr><th>Term</th><th>Purpose</th></tr></thead>
@@ -596,7 +541,7 @@
                 </tbody>
             </table>
 
-            <h3 class="font-semibold text-base mt-5 mb-2">6.5 Component Justification Table</h3>
+            <h3 class="font-semibold text-base mt-5 mb-2">5.5 Component Justification Table</h3>
             <table>
                 <thead><tr><th>Component</th><th>Problem It Solves</th><th>What Happens If Removed</th><th>Literature Support</th></tr></thead>
                 <tbody>
@@ -609,25 +554,16 @@
                 </tbody>
             </table>
 
-            <h3 class="font-semibold text-base mt-5 mb-2">6.6 What Is Deliberately NOT Included</h3>
-            <table>
-                <thead><tr><th>Omitted Component</th><th>Why Excluded</th></tr></thead>
-                <tbody>
-                    <tr><td>Dynamic Graph Neural Network</td><td>14 nodes is too few for meaningful graph learning. Spatial relationships are better captured by the covariance matrix directly.</td></tr>
-                    <tr><td>Foundation Model Adaptation (LaBraM, BIOT)</td><td>Montage mismatch (14→64 channels) requires uncertain interpolation. Not justified when training from scratch on 37K samples is feasible.</td></tr>
-                    <tr><td>Self-Supervised Pretraining</td><td>37K samples is borderline sufficient for supervised learning with regularization. SSL adds complexity without proven benefit at this scale.</td></tr>
-                    <tr><td>Subject-Adversarial GRL</td><td>We use subject-dependent evaluation. GRL is for cross-subject generalization, which is a separate research contribution.</td></tr>
-                </tbody>
-            </table>
+           
         </div>
 
         <!-- ═══════════════════════════════════════════════ -->
-        <!-- SECTION 7 -->
+        <!-- SECTION 6 -->
         <!-- ═══════════════════════════════════════════════ -->
         <div class="section-card" id="s7">
-            <h2 class="text-xl font-bold mb-4 flex items-center"><span class="section-number">7</span> Cognitive-to-Career Mapping Layer</h2>
+            <h2 class="text-xl font-bold mb-4 flex items-center"><span class="section-number">6</span> Cognitive-to-Career Mapping Layer</h2>
 
-            <h3 class="font-semibold text-base mt-4 mb-2">7.1 Step 1 — EEG Tasks → CHC Cognitive Abilities</h3>
+            <h3 class="font-semibold text-base mt-4 mb-2">6.1 Step 1 — EEG Tasks → CHC Cognitive Abilities</h3>
             <p class="text-sm leading-relaxed mb-3">The mapping is grounded in <strong>Cattell-Horn-Carroll (CHC) theory</strong>, the most validated cognitive ability taxonomy in psychometrics (McGrew 2009, Keith &amp; Reynolds 2010). CHC organizes human cognitive abilities into a three-stratum hierarchy: General Intelligence ($g$) → 10 Broad Abilities → 70+ Narrow Abilities.</p>
 
             <table>
@@ -644,7 +580,7 @@
                 <strong>*Important caveat:</strong> Sustained Attention is not a clean CHC broad ability factor. It maps most closely to Processing Speed ($G_s$) via the WJ-III Pair Cancellation task, but it is more accurately described as an executive function / arousal construct. This distinction must be explicitly acknowledged in the paper.
             </div>
 
-            <h3 class="font-semibold text-base mt-5 mb-2">7.2 Step 2 — CHC Abilities → O*NET Career Fit Scores</h3>
+            <h3 class="font-semibold text-base mt-5 mb-2">6.2 Step 2 — CHC Abilities → O*NET Career Fit Scores</h3>
             <p class="text-sm leading-relaxed mb-3">O*NET (US Dept. of Labor) provides importance and level ratings for 52 cognitive abilities across 900+ occupations. Our 5 EEG-derived abilities map to 5 of these 52 descriptors.</p>
 
             <p class="text-sm mb-1"><strong>Career fit score (point estimate):</strong></p>
@@ -661,7 +597,7 @@
             <p class="text-sm mb-1"><strong>Abstention rule:</strong></p>
             <p class="text-sm mb-3">When epistemic uncertainty $u > u_{\text{threshold}}$ (e.g., $u > 0.5$), the system outputs: <em>"Insufficient confidence in cognitive profile. Consider additional testing sessions."</em></p>
 
-            <h3 class="font-semibold text-base mt-5 mb-2">7.3 Example System Output</h3>
+            <h3 class="font-semibold text-base mt-5 mb-2">6.3 Example System Output</h3>
             <!-- EXAMPLE OUTPUT VISUAL -->
             <div style="background:#0f172a;border-radius:12px;padding:1.5rem 2rem;margin:1rem 0;color:#e2e8f0;max-width:550px;">
                 <div style="border-bottom:3px solid #fbbf24;padding-bottom:0.75rem;margin-bottom:1rem;">
@@ -714,12 +650,12 @@
         </div>
 
         <!-- ═══════════════════════════════════════════════ -->
-        <!-- SECTION 8 -->
+        <!-- SECTION 7 -->
         <!-- ═══════════════════════════════════════════════ -->
         <div class="section-card" id="s8">
-            <h2 class="text-xl font-bold mb-4 flex items-center"><span class="section-number">8</span> Validation Strategy</h2>
+            <h2 class="text-xl font-bold mb-4 flex items-center"><span class="section-number">7</span> Validation Strategy</h2>
 
-            <h3 class="font-semibold text-base mt-4 mb-2">8.1 The Three-Tier Validation Ladder</h3>
+            <h3 class="font-semibold text-base mt-4 mb-2">7.1 The Three-Tier Validation Ladder</h3>
             <p class="text-sm leading-relaxed mb-3">Following the biomarker translation framework (Clayson 2024, 2025; Parmigiani 2022), validation must progress through three tiers:</p>
 
             <div class="pipeline-step" style="border-left:4px solid #10b981">
@@ -758,7 +694,7 @@
                 </div>
             </div>
 
-            <h3 class="font-semibold text-base mt-5 mb-2">8.2 Metrics We Must Report</h3>
+            <h3 class="font-semibold text-base mt-5 mb-2">7.2 Metrics We Must Report</h3>
             <table>
                 <thead><tr><th>Metric</th><th>Target</th><th>Why Required</th></tr></thead>
                 <tbody>
@@ -772,7 +708,7 @@
                 </tbody>
             </table>
 
-            <h3 class="font-semibold text-base mt-5 mb-2">8.3 Planned Ablation Study Matrix</h3>
+            <h3 class="font-semibold text-base mt-5 mb-2">7.3 Planned Ablation Study Matrix</h3>
             <table>
                 <thead><tr><th>Experiment</th><th>What It Proves</th></tr></thead>
                 <tbody>
@@ -791,10 +727,10 @@
         </div>
 
         <!-- ═══════════════════════════════════════════════ -->
-        <!-- SECTION 9 -->
+        <!-- SECTION 8 -->
         <!-- ═══════════════════════════════════════════════ -->
-        <div class="section-card" id="s9">
-            <h2 class="text-xl font-bold mb-4 flex items-center"><span class="section-number">9</span> Ethical &amp; Legal Constraints</h2>
+        <div class="section-card" id="s8">
+            <h2 class="text-xl font-bold mb-4 flex items-center"><span class="section-number">8</span> Ethical &amp; Legal Constraints</h2>
 
             <p class="text-sm leading-relaxed mb-4">EEG-based cognitive profiling touches fundamental questions of neuroethics, privacy, and algorithmic fairness. All four Step 2 research reports converge on the same conclusion: <strong>the system must be positioned as advisory decision-support, never as a hiring or screening tool.</strong></p>
 
@@ -807,22 +743,22 @@
                 </tbody>
             </table>
 
-            <h3 class="font-semibold text-base mt-5 mb-2">9.1 Mandatory Disclaimers in the Paper</h3>
+            <h3 class="font-semibold text-base mt-5 mb-2">8.1 Mandatory Disclaimers in the Paper</h3>
             <ol class="text-sm list-decimal ml-5 leading-relaxed">
                 <li>"This system is designed as an exploratory decision-support tool for career self-discovery, not an employment screening instrument."</li>
                 <li>"Cognitive ability profiles are influenced by many factors beyond neural measurements, including motivation, prior experience, cultural context, and test-taking conditions."</li>
                 <li>"Career success depends on non-cognitive factors (personality, interests, motivation, socioeconomic context) not measured by this system."</li>
             </ol>
 
-            <h3 class="font-semibold text-base mt-5 mb-2">9.2 The "Neuro-Essentialism" Fallacy</h3>
+            <h3 class="font-semibold text-base mt-5 mb-2"> 8.2 The "Neuro-Essentialism" Fallacy</h3>
             <p class="text-sm leading-relaxed">There is a flawed assumption that biological neural signals are inherently superior or more "truthful" than behavioral task performance. If an individual solves complex math problems via an idiosyncratic cognitive strategy that does not produce standard parietal-frontal arithmetic EEG signatures, penalizing their STEM aptitude score would represent a severe failure of construct validity. The paper must acknowledge this limitation explicitly.</p>
         </div>
 
         <!-- ═══════════════════════════════════════════════ -->
-        <!-- SECTION 10 -->
+        <!-- SECTION 9 -->
         <!-- ═══════════════════════════════════════════════ -->
-        <div class="section-card" id="s10">
-            <h2 class="text-xl font-bold mb-4 flex items-center"><span class="section-number">10</span> Implementation Roadmap</h2>
+        <div class="section-card" id="s9">
+            <h2 class="text-xl font-bold mb4 flex items-center"><span class="section-number">9</span> Implementation Roadmap</h2>
 
             <table>
                 <thead><tr><th>Phase</th><th>Timeline</th><th>Key Tasks</th><th>Deliverables</th></tr></thead>
@@ -917,10 +853,10 @@
         </div>
 
         <!-- ═══════════════════════════════════════════════ -->
-        <!-- SECTION 11 -->
+        <!-- SECTION 10 -->
         <!-- ═══════════════════════════════════════════════ -->
-        <div class="section-card" id="s11">
-            <h2 class="text-xl font-bold mb-4 flex items-center"><span class="section-number">11</span> References &amp; Citations</h2>
+        <div class="section-card" id="s10">
+            <h2 class="text-xl font-bold mb-4 flex items-center"><span class="section-number">10</span> References &amp; Citations</h2>
 
             <h3 class="font-semibold text-sm mt-4 mb-3 text-teal-700">Riemannian Geometry &amp; SPD Networks</h3>
             <div class="ref-entry"><strong>Tibermacine, I. E., Russo, S., &amp; Napoli, C. (2026).</strong> Stiefel-SPD Manifold Graph Convolution for End-to-End EEG Learning. <em>IEEE Trans. Neural Systems and Rehabilitation Engineering</em>, 34, 595–606.</div>
@@ -976,8 +912,6 @@
         <!-- FOOTER -->
         <div class="text-center py-8 text-xs text-stone-400">
             <p>CogProfile-Net Strategic Direction Report &bull; August 2026</p>
-            <p class="mt-1">Prepared for academic mentor review &amp; research implementation</p>
-            <p class="mt-2 font-semibold text-stone-500">To save as PDF: Click the "Save as PDF" button → In your browser's print dialog, select "Save as PDF" as the destination → Click Save.</p>
         </div>
 
     </main>
