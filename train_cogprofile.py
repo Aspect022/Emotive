@@ -1,4 +1,4 @@
-﻿"""
+"""
 train_cogprofile.py
 Main training script for CogProfile-Net v2.
 
@@ -61,43 +61,33 @@ print(f"[CogProfileNet] Device: {DEVICE}")
 # ------------------------------------------------------------------ #
 # Load dataset
 # ------------------------------------------------------------------ #
-def load_dataset() -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, dict]:
-    """Load raw EEG trials and sub-window them to (N_windows, 14, 128)."""
-    DL = ROOT / "data" / "processed" / "dl_dataset"
+def load_dataset():
+    """Load precomputed scalograms and raw EEG windows."""
+    SCAL_DIR = ROOT / "data" / "processed" / "scalograms"
+    scal_file = SCAL_DIR / "scalograms.npy"
+    
+    if not scal_file.exists():
+        print("[Data] Precomputed scalograms not found. Running precompute_scalograms...")
+        import precompute_scalograms
+        precompute_scalograms.main()
+        
+    print("[Data] Loading memory-mapped scalograms...")
+    scalograms = np.lib.format.open_memmap(str(scal_file), mode="r")
+    X_win = np.load(SCAL_DIR / "windows_raw.npy")
+    y_win = np.load(SCAL_DIR / "labels.npy")
+    t_ids = np.load(SCAL_DIR / "trial_ids.npy")
+    s_ids = np.load(SCAL_DIR / "subject_ids.npy", allow_pickle=True)
 
-    X_raw = np.load(DL / "X_raw.npy")           # (2908, 14, 512)
-    y     = np.load(DL / "y_task.npy")           # (2908,)
-    pids  = np.load(DL / "participant_ids.npy", allow_pickle=True)  # (2908,)
+    print(f"[Data] Loaded {len(y_win):,} windows | Scalograms: {scalograms.shape} | Subjects: {len(np.unique(s_ids))}")
 
-    print(f"[Data] Loaded X={X_raw.shape}, y={y.shape}, subjects={len(np.unique(pids))}")
-
-    # Sub-window each 4s trial into 1s windows with 75% overlap
-    W, STEP = 128, 32    # window=1s, step=0.25s
-    windows, labels, trial_ids, subject_ids = [], [], [], []
-
-    for i, (trial, label, pid) in enumerate(zip(X_raw, y, pids)):
-        T = trial.shape[1]   # 512
-        for start in range(0, T - W + 1, STEP):
-            windows.append(trial[:, start: start + W])
-            labels.append(label)
-            trial_ids.append(i)
-            subject_ids.append(pid)
-
-    X_win = np.stack(windows).astype(np.float32)   # (N, 14, 128)
-    y_win = np.array(labels, dtype=np.int64)
-    t_ids = np.array(trial_ids, dtype=np.int64)
-    s_ids = np.array(subject_ids)
-
-    print(f"[Data] Sub-windows: {X_win.shape}, class dist: {dict(zip(*np.unique(y_win, return_counts=True)))}")
-
-    # Build metadata (placeholder — use window_meta.csv if available)
+    # Build metadata (placeholder or real metadata)
     meta = {
-        "rt":         np.ones(len(X_win)) * 0.5,
-        "difficulty": np.ones(len(X_win)) * 0.5,
-        "accuracy":   np.ones(len(X_win)) * 0.5,
+        "rt":         np.ones(len(X_win), dtype=np.float32) * 0.5,
+        "difficulty": np.ones(len(X_win), dtype=np.float32) * 0.5,
+        "accuracy":   np.ones(len(X_win), dtype=np.float32) * 0.5,
     }
 
-    return X_win, y_win, t_ids, s_ids, meta
+    return scalograms, X_win, y_win, t_ids, s_ids, meta
 
 
 # ------------------------------------------------------------------ #
@@ -150,38 +140,41 @@ def evaluate_model(model, loader, device, n_classes=5):
 # DualBranchDataset — returns (scalogram, raw_eeg, behav, label)
 # ------------------------------------------------------------------ #
 class DualDataset(torch.utils.data.Dataset):
-    """Returns scalogram AND raw EEG for the dual-branch model."""
+    """Memory-mapped dataset returning scalogram AND raw EEG."""
 
-    def __init__(self, X, y, meta, augment=False):
-        from features.scalogram import compute_scalogram
-        self.X = X.astype(np.float32)
-        self.y = y.astype(np.int64)
+    def __init__(self, scalograms, X, y, meta, indices=None, augment=False):
+        self.scalograms = scalograms
+        self.X = X
+        self.y = y
         self.meta = meta
+        self.indices = np.arange(len(y)) if indices is None else indices
         self.augment = augment
-        self._scalogram_fn = compute_scalogram
 
     def __len__(self):
-        return len(self.X)
+        return len(self.indices)
 
     def __getitem__(self, idx):
-        window = self.X[idx]   # (14, 128)
-        if self.augment and np.random.rand() < 0.3:
-            window = window[:, ::-1].copy()
+        real_idx = self.indices[idx]
+        
+        # Read from memory map
+        scalogram = np.array(self.scalograms[real_idx], dtype=np.float32)
+        raw = np.array(self.X[real_idx], dtype=np.float32)
 
-        scalogram = self._scalogram_fn(window)   # (14, 64, 128)
-        raw       = window                        # (14, 128)
+        if self.augment and np.random.rand() < 0.3:
+            raw = raw[:, ::-1].copy()
+            scalogram = scalogram[:, :, ::-1].copy()
 
         behav = np.array([
-            self.meta["rt"][idx],
-            self.meta["difficulty"][idx],
-            self.meta["accuracy"][idx],
+            self.meta["rt"][real_idx],
+            self.meta["difficulty"][real_idx],
+            self.meta["accuracy"][real_idx],
         ], dtype=np.float32)
 
         return (
-            torch.tensor(scalogram, dtype=torch.float32),
-            torch.tensor(raw, dtype=torch.float32),
-            torch.tensor(behav, dtype=torch.float32),
-            torch.tensor(self.y[idx], dtype=torch.long),
+            torch.from_numpy(scalogram),
+            torch.from_numpy(raw),
+            torch.from_numpy(behav),
+            torch.tensor(self.y[real_idx], dtype=torch.long),
         )
 
 
@@ -193,7 +186,7 @@ def main():
     np.random.seed(CFG["seed"])
 
     # Load data
-    X, y, trial_ids, subject_ids, meta = load_dataset()
+    scalograms, X, y, trial_ids, subject_ids, meta = load_dataset()
 
     # All three split tiers
     splits = {
@@ -213,12 +206,9 @@ def main():
     print(f"[Split Tier2] Train windows={len(sp['train_idx'])} | "
           f"Val={len(sp['val_idx'])} | Test={len(sp['test_idx'])}")
 
-    train_ds = DualDataset(X[sp["train_idx"]], y[sp["train_idx"]],
-                           {k: v[sp["train_idx"]] for k, v in meta.items()}, augment=True)
-    val_ds   = DualDataset(X[sp["val_idx"]], y[sp["val_idx"]],
-                           {k: v[sp["val_idx"]] for k, v in meta.items()})
-    test_ds  = DualDataset(X[sp["test_idx"]], y[sp["test_idx"]],
-                           {k: v[sp["test_idx"]] for k, v in meta.items()})
+    train_ds = DualDataset(scalograms, X, y, meta, indices=sp["train_idx"], augment=True)
+    val_ds   = DualDataset(scalograms, X, y, meta, indices=sp["val_idx"], augment=False)
+    test_ds  = DualDataset(scalograms, X, y, meta, indices=sp["test_idx"], augment=False)
 
     train_loader = DataLoader(train_ds, batch_size=CFG["batch_size"], shuffle=True,
                               num_workers=0, pin_memory=False)
@@ -335,8 +325,9 @@ def main():
 
     for tier_name, sp_tier in splits.items():
         tier_ds = DualDataset(
-            X[sp_tier["test_idx"]], y[sp_tier["test_idx"]],
-            {k: v[sp_tier["test_idx"]] for k, v in meta.items()},
+            scalograms, X, y, meta,
+            indices=sp_tier["test_idx"],
+            augment=False,
         )
         tier_loader = DataLoader(tier_ds, batch_size=CFG["batch_size"], num_workers=0)
         m = evaluate_model(model, tier_loader, DEVICE)
