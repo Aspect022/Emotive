@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CogProfile-Net — Strategic Research Direction Report</title>
+    <title>CogProfile-Net â€” Strategic Research Direction Report</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -155,7 +155,7 @@
             <div class="text-teal-200 text-sm font-semibold tracking-widest uppercase mb-3">Strategic Research Direction Report</div>
             <h1 class="text-4xl md:text-5xl font-black leading-tight mb-4">CogProfile-Net</h1>
             <p class="text-xl md:text-2xl font-light text-teal-100 leading-relaxed max-w-3xl">
-                Uncertainty-Aware Neural Cognitive Profiling via Riemannian EEG Encoding with Psychometrically-Grounded Career Aptitude Mapping
+                CWT Scalogram Stacking Â· Deep Embedded Clustering Â· Riemannian SPD Encoding Â· Evidential Deep Learning Â· Digital Twin Cognitive Trajectory Simulation
             </p>
             <div class="flex flex-wrap gap-6 mt-8 text-sm text-teal-200">
                 <div><span class="font-semibold text-white">Hardware:</span> Emotiv EPOC+ (14ch, 128 Hz)</div>
@@ -171,7 +171,7 @@
 
         <!-- TABLE OF CONTENTS -->
         <div class="section-card toc">
-            <h2 class="text-lg font-bold mb-4 flex items-center"><span class="section-number">📋</span> Table of Contents</h2>
+            <h2 class="text-lg font-bold mb-4 flex items-center"><span class="section-number">ðŸ“‹</span> Table of Contents</h2>
             <div class="grid md:grid-cols-2 gap-x-8">
                 <div>
                     <a href="#s1">1. Where We Stand Today</a>
@@ -179,7 +179,7 @@
                     <a href="#s3">3. The End-to-End Vision</a>
                     <a href="#s4">4. Critical Evaluation of Prior Proposals</a>
                     <a href="#s5">5. The Real Novel Contribution</a>
-                    <a href="#s6">6. CogProfile-Net Architecture</a>
+                    <a href="#s6">6. CogProfile-Net v2 Architecture</a>
                 </div>
                 <div>
                     <a href="#s7">7. Cognitive-to-Career Mapping Layer</a>
@@ -191,9 +191,9 @@
             </div>
         </div>
 
-        <!-- ═══════════════════════════════════════════════ -->
+        <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
         <!-- SECTION 1 -->
-        <!-- ═══════════════════════════════════════════════ -->
+        <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
         <div class="section-card" id="s1">
             <h2 class="text-xl font-bold mb-4 flex items-center"><span class="section-number">1</span> Where We Stand Today</h2>
 
@@ -201,14 +201,14 @@
             <table>
                 <thead><tr><th>Component</th><th>Status</th><th>Details</th></tr></thead>
                 <tbody>
-                    <tr><td>Data collection pipeline</td><td class="verdict-yes">✅ Done</td><td>Emotiv EPOC+ (14ch, 128 Hz) + synchronized web-based cognitive tasks via Supabase</td></tr>
-                    <tr><td>Signal preprocessing</td><td class="verdict-yes">✅ Done</td><td>Common Average Referencing, 0.5–45 Hz bandpass, Contact Quality gating</td></tr>
-                    <tr><td>Sub-windowing augmentation</td><td class="verdict-yes">✅ Done</td><td>2,908 trials → 37,804 × 1-second windows (75% overlap, step=32 samples)</td></tr>
-                    <tr><td>Feature engineering</td><td class="verdict-yes">✅ Done</td><td>252 features: Welch PSD, Differential Entropy, band ratios, statistical moments</td></tr>
-                    <tr><td>ML baseline benchmark</td><td class="verdict-yes">✅ Done</td><td>73.34% test accuracy (Tuned LightGBM), 8 models evaluated</td></tr>
-                    <tr><td>XAI &amp; statistical validation</td><td class="verdict-yes">✅ Done</td><td>TreeSHAP, permutation test (p&lt;0.001), bootstrap CIs, McNemar's, Cohen's κ=0.66</td></tr>
-                    <tr><td>Deep learning architecture</td><td class="verdict-no">❌ Not started</td><td>This document defines the direction</td></tr>
-                    <tr><td>Career/aptitude mapping</td><td class="verdict-no">❌ Not started</td><td>Requires DL output design + psychometric grounding</td></tr>
+                    <tr><td>Data collection pipeline</td><td class="verdict-yes">âœ… Done</td><td>Emotiv EPOC+ (14ch, 128 Hz) + synchronized web-based cognitive tasks via Supabase</td></tr>
+                    <tr><td>Signal preprocessing</td><td class="verdict-yes">âœ… Done</td><td>Common Average Referencing, 0.5â€“45 Hz bandpass, Contact Quality gating</td></tr>
+                    <tr><td>Sub-windowing augmentation</td><td class="verdict-yes">âœ… Done</td><td>2,908 trials â†’ 37,804 Ã— 1-second windows (75% overlap, step=32 samples)</td></tr>
+                    <tr><td>Feature engineering</td><td class="verdict-yes">âœ… Done</td><td>252 features: Welch PSD, Differential Entropy, band ratios, statistical moments</td></tr>
+                    <tr><td>ML baseline benchmark</td><td class="verdict-yes">âœ… Done</td><td>73.34% test accuracy (Tuned LightGBM), 8 models evaluated</td></tr>
+                    <tr><td>XAI &amp; statistical validation</td><td class="verdict-yes">âœ… Done</td><td>TreeSHAP, permutation test (p&lt;0.001), bootstrap CIs, McNemar's, Cohen's Îº=0.66</td></tr>
+                    <tr><td>Deep learning architecture</td><td class="verdict-no">âŒ Not started</td><td>This document defines the direction</td></tr>
+                    <tr><td>Career/aptitude mapping</td><td class="verdict-no">âŒ Not started</td><td>Requires DL output design + psychometric grounding</td></tr>
                 </tbody>
             </table>
 
@@ -227,11 +227,11 @@
             <table>
                 <thead><tr><th>Class</th><th>Cognitive Task</th><th>Primary Brain Region</th><th>Key EEG Signature</th></tr></thead>
                 <tbody>
-                    <tr><td><strong>0</strong></td><td>Mental Arithmetic</td><td>Dorsolateral Prefrontal Cortex (DLPFC), Parietal Lobe</td><td>Frontal θ synchronization, β power elevation</td></tr>
-                    <tr><td><strong>1</strong></td><td>Pattern Recognition</td><td>Visual Cortex (Occipital O1/O2), Superior Parietal</td><td>Occipital/Parietal α desynchronization, γ bursts</td></tr>
+                    <tr><td><strong>0</strong></td><td>Mental Arithmetic</td><td>Dorsolateral Prefrontal Cortex (DLPFC), Parietal Lobe</td><td>Frontal Î¸ synchronization, Î² power elevation</td></tr>
+                    <tr><td><strong>1</strong></td><td>Pattern Recognition</td><td>Visual Cortex (Occipital O1/O2), Superior Parietal</td><td>Occipital/Parietal Î± desynchronization, Î³ bursts</td></tr>
                     <tr><td><strong>2</strong></td><td>Working Memory</td><td>Frontal Midline (AF3/AF4, F3/F4)</td><td>Frontal Midline Theta (FMT) elevation</td></tr>
-                    <tr><td><strong>3</strong></td><td>Reading Comprehension</td><td>Left Temporal (T7), Broca's Area (F7/F3)</td><td>Left-hemispheric θ/β modulation</td></tr>
-                    <tr><td><strong>4</strong></td><td>Sustained Attention</td><td>Anterior Cingulate, Frontal Eye Fields</td><td>α suppression, elevated β/θ ratio</td></tr>
+                    <tr><td><strong>3</strong></td><td>Reading Comprehension</td><td>Left Temporal (T7), Broca's Area (F7/F3)</td><td>Left-hemispheric Î¸/Î² modulation</td></tr>
+                    <tr><td><strong>4</strong></td><td>Sustained Attention</td><td>Anterior Cingulate, Frontal Eye Fields</td><td>Î± suppression, elevated Î²/Î¸ ratio</td></tr>
                 </tbody>
             </table>
 
@@ -239,9 +239,9 @@
             <table>
                 <thead><tr><th>Rank</th><th>Model</th><th>Test Accuracy</th><th>Macro-F1</th><th>Training Time</th></tr></thead>
                 <tbody>
-                    <tr style="background:#ecfdf5"><td>🥇 1</td><td><strong>Tuned LightGBM</strong> (n_est=500, lr=0.03, leaves=127)</td><td><strong>73.34%</strong></td><td><strong>0.7256</strong></td><td>370.7s</td></tr>
-                    <tr><td>🥈 2</td><td>ExtraTrees (n_est=300)</td><td>71.10%</td><td>0.6994</td><td>20.5s</td></tr>
-                    <tr><td>🥉 3</td><td>LightGBM Fast (n_est=300)</td><td>69.08%</td><td>0.6797</td><td>124.1s</td></tr>
+                    <tr style="background:#ecfdf5"><td>ðŸ¥‡ 1</td><td><strong>Tuned LightGBM</strong> (n_est=500, lr=0.03, leaves=127)</td><td><strong>73.34%</strong></td><td><strong>0.7256</strong></td><td>370.7s</td></tr>
+                    <tr><td>ðŸ¥ˆ 2</td><td>ExtraTrees (n_est=300)</td><td>71.10%</td><td>0.6994</td><td>20.5s</td></tr>
+                    <tr><td>ðŸ¥‰ 3</td><td>LightGBM Fast (n_est=300)</td><td>69.08%</td><td>0.6797</td><td>124.1s</td></tr>
                     <tr><td>4</td><td>ExtraTrees (depth=25)</td><td>67.54%</td><td>0.6600</td><td>31.5s</td></tr>
                     <tr><td>5</td><td>Random Forest</td><td>66.80%</td><td>0.6491</td><td>96.1s</td></tr>
                 </tbody>
@@ -252,22 +252,22 @@
                 <thead><tr><th>Statistical Test</th><th>Result</th><th>Interpretation</th></tr></thead>
                 <tbody>
                     <tr><td>Permutation Test (1,000 runs)</td><td>Observed 73.34% vs. Null 22.11%, <strong>p = 0.0010</strong></td><td>Performance vastly exceeds chance (20%)</td></tr>
-                    <tr><td>McNemar's (LightGBM vs. ExtraTrees)</td><td>χ² = 21.50, <strong>p = 3.55×10⁻⁶</strong></td><td>LightGBM significantly outperforms</td></tr>
+                    <tr><td>McNemar's (LightGBM vs. ExtraTrees)</td><td>Ï‡Â² = 21.50, <strong>p = 3.55Ã—10â»â¶</strong></td><td>LightGBM significantly outperforms</td></tr>
                     <tr><td>95% Bootstrap CI (Accuracy)</td><td><strong>[72.32%, 74.38%]</strong></td><td>Narrow interval = reliable estimate</td></tr>
                     <tr><td>95% Bootstrap CI (Macro-F1)</td><td><strong>[0.7145, 0.7359]</strong></td><td>Consistent across resamples</td></tr>
-                    <tr><td>Cohen's Kappa</td><td><strong>κ = 0.6576</strong></td><td>Substantial agreement beyond chance</td></tr>
+                    <tr><td>Cohen's Kappa</td><td><strong>Îº = 0.6576</strong></td><td>Substantial agreement beyond chance</td></tr>
                 </tbody>
             </table>
         </div>
 
-        <!-- ═══════════════════════════════════════════════ -->
+        <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
         <!-- SECTION 2 -->
-        <!-- ═══════════════════════════════════════════════ -->
+        <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
         <div class="section-card" id="s2">
             <h2 class="text-xl font-bold mb-4 flex items-center"><span class="section-number">2</span> The Honest Problem: What's Missing</h2>
 
             <h3 class="font-semibold text-base mt-5 mb-2"> Why the Current Work Doesn't Stand Out Yet</h3>
-            <p class="text-sm leading-relaxed mb-3">Our ML baseline uses standard PSD + Differential Entropy features fed into LightGBM to produce a hard 5-class label. This is a well-established pipeline — dozens of published papers follow the same approach. Reviewers at top venues (IEEE T-NSRE, Journal of Neural Engineering) would raise four critical questions:</p>
+            <p class="text-sm leading-relaxed mb-3">Our ML baseline uses standard PSD + Differential Entropy features fed into LightGBM to produce a hard 5-class label. This is a well-established pipeline â€” dozens of published papers follow the same approach. Reviewers at top venues (IEEE T-NSRE, Journal of Neural Engineering) would raise four critical questions:</p>
             <table>
                 <thead><tr><th>Reviewer Question</th><th>Our Current Answer</th><th>Gap</th></tr></thead>
                 <tbody>
@@ -278,12 +278,12 @@
                 </tbody>
             </table>
 
-            <p class="text-sm leading-relaxed mt-4">That last question — <em>"What can someone actually do with this?"</em> — is the critical one. It reveals the path to the genuine innovation.</p>
+            <p class="text-sm leading-relaxed mt-4">That last question â€” <em>"What can someone actually do with this?"</em> â€” is the critical one. It reveals the path to the genuine innovation.</p>
         </div>
 
-        <!-- ═══════════════════════════════════════════════ -->
+        <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
         <!-- SECTION 3 -->
-        <!-- ═══════════════════════════════════════════════ -->
+        <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
         <div class="section-card" id="s3">
             <h2 class="text-xl font-bold mb-4 flex items-center"><span class="section-number">3</span> The End-to-End Vision</h2>
 
@@ -291,8 +291,8 @@
             <p class="text-sm leading-relaxed mb-4">The project's actual goal extends far beyond classification accuracy. It is a <strong>Neural Cognitive Profiling System</strong> with a downstream career aptitude application.</p>
 
             <div class="callout callout-critical">
-                <strong>Current (Wrong) Framing:</strong> EEG → "This person is doing Working Memory" (single hard label)<br>
-                <strong>Actual Goal:</strong> EEG → Calibrated Cognitive Profile: {Math: 15%, Pattern: 30%, Memory: 35%, …} → Career Pathway Recommendation with Uncertainty
+                <strong>Current (Wrong) Framing:</strong> EEG â†’ "This person is doing Working Memory" (single hard label)<br>
+                <strong>Actual Goal:</strong> EEG â†’ Calibrated Cognitive Profile: {Math: 15%, Pattern: 30%, Memory: 35%, â€¦} â†’ Career Pathway Recommendation with Uncertainty
             </div>
 
             <h3 class="font-semibold text-base mt-5 mb-3">3.2 The Complete Three-Stage Pipeline</h3>
@@ -305,30 +305,30 @@
                         <strong style="font-size:0.9rem;color:#14532d;">Data Acquisition</strong>
                     </div>
                     <p style="font-size:0.82rem;color:#166534;margin:0;">Emotiv EPOC+ (14-channel EEG, 128 Hz) + Web-Based Cognitive Test Battery</p>
-                    <p style="font-size:0.78rem;color:#15803d;margin:0.25rem 0 0 0;">→ Synchronized trial dataset: <strong>2,908 trials → 37,804 sub-windows</strong></p>
+                    <p style="font-size:0.78rem;color:#15803d;margin:0.25rem 0 0 0;">â†’ Synchronized trial dataset: <strong>2,908 trials â†’ 37,804 sub-windows</strong></p>
                 </div>
                 <!-- Arrow -->
-                <div style="font-size:1.5rem;color:#0f766e;line-height:1;padding:0.25rem 0;">▼</div>
+                <div style="font-size:1.5rem;color:#0f766e;line-height:1;padding:0.25rem 0;">â–¼</div>
                 <!-- Stage 2 -->
                 <div style="width:100%;background:linear-gradient(135deg,#f0fdfa,#ccfbf1);border:2px solid #2dd4bf;border-radius:12px;padding:1.25rem 1.5rem;position:relative;">
-                    <div style="position:absolute;top:-10px;right:12px;background:#f472b6;color:white;font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:6px;">★ CORE INNOVATION</div>
+                    <div style="position:absolute;top:-10px;right:12px;background:#f472b6;color:white;font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:6px;">â˜… CORE INNOVATION</div>
                     <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
                         <span style="background:#0f766e;color:white;font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:6px;">STAGE 2</span>
                         <strong style="font-size:0.9rem;color:#064e3b;">Neural Cognitive Profiling</strong>
                     </div>
                     <div style="font-size:0.82rem;color:#115e59;line-height:1.7;">
-                        Raw EEG (14 × 128) per sub-window<br>
-                        &nbsp;&nbsp;↓ Riemannian SPD Encoder <span style="color:#78716c;">(geometry-aware, subject-invariant)</span><br>
-                        &nbsp;&nbsp;↓ Evidential Output Head <span style="color:#78716c;">(Dirichlet distribution)</span><br>
-                        &nbsp;&nbsp;↓ <strong>Calibrated Cognitive Profile with Uncertainty:</strong>
+                        Raw EEG (14 Ã— 128) per sub-window<br>
+                        &nbsp;&nbsp;â†“ Riemannian SPD Encoder <span style="color:#78716c;">(geometry-aware, subject-invariant)</span><br>
+                        &nbsp;&nbsp;â†“ Evidential Output Head <span style="color:#78716c;">(Dirichlet distribution)</span><br>
+                        &nbsp;&nbsp;â†“ <strong>Calibrated Cognitive Profile with Uncertainty:</strong>
                     </div>
                     <div style="background:#064e3b;color:#5eead4;font-family:'JetBrains Mono',monospace;font-size:0.78rem;padding:0.6rem 1rem;border-radius:8px;margin-top:0.5rem;">
-                        {Math: 15%±3%, Pattern: 30%±5%, Memory: 35%±4%, Reading: 10%±2%, Attention: 10%±2%}<br>
+                        {Math: 15%Â±3%, Pattern: 30%Â±5%, Memory: 35%Â±4%, Reading: 10%Â±2%, Attention: 10%Â±2%}<br>
                         Confidence: u = 0.12 (HIGH)
                     </div>
                 </div>
                 <!-- Arrow -->
-                <div style="font-size:1.5rem;color:#0f766e;line-height:1;padding:0.25rem 0;">▼</div>
+                <div style="font-size:1.5rem;color:#0f766e;line-height:1;padding:0.25rem 0;">â–¼</div>
                 <!-- Stage 3 -->
                 <div style="width:100%;background:linear-gradient(135deg,#faf5ff,#f3e8ff);border:2px solid #c084fc;border-radius:12px;padding:1.25rem 1.5rem;">
                     <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem;">
@@ -336,14 +336,14 @@
                         <strong style="font-size:0.9rem;color:#3b0764;">Career Aptitude Mapping</strong>
                     </div>
                     <div style="font-size:0.82rem;color:#581c87;line-height:1.7;">
-                        Cognitive Profile Dir(α) → CHC Ability Alignment<br>
-                        &nbsp;&nbsp;→ O*NET Occupational Requirements (900+ careers)<br>
-                        &nbsp;&nbsp;→ Bayesian Career Fit Scores + 95% Credible Intervals
+                        Cognitive Profile Dir(Î±) â†’ CHC Ability Alignment<br>
+                        &nbsp;&nbsp;â†’ O*NET Occupational Requirements (900+ careers)<br>
+                        &nbsp;&nbsp;â†’ Bayesian Career Fit Scores + 95% Credible Intervals
                     </div>
                     <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.5rem;">
-                        <span style="background:#7c3aed;color:white;font-size:0.75rem;padding:4px 10px;border-radius:6px;font-weight:600;">STEM Engineering: 78% ± 8%</span>
-                        <span style="background:#7c3aed;color:white;font-size:0.75rem;padding:4px 10px;border-radius:6px;font-weight:600;">Data Analysis: 72% ± 6%</span>
-                        <span style="background:#9333ea;color:white;font-size:0.75rem;padding:4px 10px;border-radius:6px;font-weight:600;">Creative Design: 41% ± 12%</span>
+                        <span style="background:#7c3aed;color:white;font-size:0.75rem;padding:4px 10px;border-radius:6px;font-weight:600;">STEM Engineering: 78% Â± 8%</span>
+                        <span style="background:#7c3aed;color:white;font-size:0.75rem;padding:4px 10px;border-radius:6px;font-weight:600;">Data Analysis: 72% Â± 6%</span>
+                        <span style="background:#9333ea;color:white;font-size:0.75rem;padding:4px 10px;border-radius:6px;font-weight:600;">Creative Design: 41% Â± 12%</span>
                     </div>
                 </div>
             </div>
@@ -353,218 +353,223 @@
             <table>
                 <thead><tr><th>Existing Approach</th><th>Neural Signal?</th><th>Calibrated Probabilities?</th><th>Career Mapping?</th></tr></thead>
                 <tbody>
-                    <tr><td>Holland RIASEC / ASVAB / GATB</td><td class="verdict-no">❌ Self-report questionnaires</td><td class="verdict-no">❌ Binary scores</td><td class="verdict-yes">✅ Yes</td></tr>
-                    <tr><td>Pymetrics / Cognify</td><td class="verdict-no">❌ Behavioral games only</td><td class="verdict-no">❌ Proprietary black-box</td><td class="verdict-yes">✅ Yes</td></tr>
-                    <tr><td>EEG classification papers</td><td class="verdict-yes">✅ Neural signal</td><td class="verdict-no">❌ Hard labels / overconfident softmax</td><td class="verdict-no">❌ Just accuracy benchmarks</td></tr>
-                    <tr style="background:#ecfdf5"><td><strong>CogProfile-Net (Ours)</strong></td><td class="verdict-yes"><strong>✅ Direct EEG</strong></td><td class="verdict-yes"><strong>✅ Dirichlet-calibrated + uncertainty</strong></td><td class="verdict-yes"><strong>✅ CHC→O*NET with CIs</strong></td></tr>
+                    <tr><td>Holland RIASEC / ASVAB / GATB</td><td class="verdict-no">âŒ Self-report questionnaires</td><td class="verdict-no">âŒ Binary scores</td><td class="verdict-yes">âœ… Yes</td></tr>
+                    <tr><td>Pymetrics / Cognify</td><td class="verdict-no">âŒ Behavioral games only</td><td class="verdict-no">âŒ Proprietary black-box</td><td class="verdict-yes">âœ… Yes</td></tr>
+                    <tr><td>EEG classification papers</td><td class="verdict-yes">âœ… Neural signal</td><td class="verdict-no">âŒ Hard labels / overconfident softmax</td><td class="verdict-no">âŒ Just accuracy benchmarks</td></tr>
+                    <tr style="background:#ecfdf5"><td><strong>CogProfile-Net (Ours)</strong></td><td class="verdict-yes"><strong>âœ… Direct EEG</strong></td><td class="verdict-yes"><strong>âœ… Dirichlet-calibrated + uncertainty</strong></td><td class="verdict-yes"><strong>âœ… CHCâ†’O*NET with CIs</strong></td></tr>
                 </tbody>
             </table>
         </div>
 
         
 
-        <!-- ═══════════════════════════════════════════════ -->
+        <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
         <!-- SECTION 4 -->
-        <!-- ═══════════════════════════════════════════════ -->
+        <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
         <div class="section-card" id="s5">
             <h2 class="text-xl font-bold mb-4 flex items-center"><span class="section-number">4</span> The Real Novel Contribution</h2>
 
             <p class="text-sm leading-relaxed mb-4">Instead of claiming novelty through architectural complexity, we claim novelty through <strong>a coherent, end-to-end system that no prior work has demonstrated.</strong> The contribution is organized into three layers, each solving a distinct problem:</p>
 
             <div class="arch-box">
-                <div class="arch-box-title">🧬 Layer 1: Riemannian Geometry-Aware EEG Encoding (Methodological Novelty)</div>
+                <div class="arch-box-title">ðŸ§¬ Layer 1: Riemannian Geometry-Aware EEG Encoding (Methodological Novelty)</div>
                 <p class="text-sm leading-relaxed"><strong>What:</strong> Replace handcrafted PSD/DE features with learned spatial covariance representations on the Symmetric Positive Definite (SPD) manifold.</p>
-                <p class="text-sm leading-relaxed mt-1"><strong>Why justified:</strong> The 14×14 covariance matrix is naturally SPD. Riemannian metrics are mathematically invariant to the linear transformations caused by skull thickness, electrode impedance, and cortical geometry differences — our primary noise source.</p>
+                <p class="text-sm leading-relaxed mt-1"><strong>Why justified:</strong> The 14Ã—14 covariance matrix is naturally SPD. Riemannian metrics are mathematically invariant to the linear transformations caused by skull thickness, electrode impedance, and cortical geometry differences â€” our primary noise source.</p>
                 <p class="text-sm leading-relaxed mt-1"><strong>What it improves:</strong> Eliminates the manual feature engineering bottleneck and provides fundamentally more robust representations than Euclidean neural networks.</p>
             </div>
 
             <div class="arch-box">
-                <div class="arch-box-title">📊 Layer 2: Evidential Uncertainty-Calibrated Classification (Architectural Novelty)</div>
+                <div class="arch-box-title">ðŸ“Š Layer 2: Evidential Uncertainty-Calibrated Classification (Architectural Novelty)</div>
                 <p class="text-sm leading-relaxed"><strong>What:</strong> Replace standard softmax with a Dirichlet distribution head that outputs calibrated probabilities AND explicit uncertainty mass.</p>
-                <p class="text-sm leading-relaxed mt-1"><strong>Why justified:</strong> When the output feeds into career recommendations, the difference between "confident: 80% working memory" and "uncertain: maybe 50–80% working memory" is the difference between a useful system and a dangerous one. Standard softmax gives wildly overconfident scores on small datasets. No EEG cognitive classification paper has used EDL for aptitude profiling.</p>
+                <p class="text-sm leading-relaxed mt-1"><strong>Why justified:</strong> When the output feeds into career recommendations, the difference between "confident: 80% working memory" and "uncertain: maybe 50â€“80% working memory" is the difference between a useful system and a dangerous one. Standard softmax gives wildly overconfident scores on small datasets. No EEG cognitive classification paper has used EDL for aptitude profiling.</p>
                 <p class="text-sm leading-relaxed mt-1"><strong>What it enables:</strong> The system can say "I don't know" (high vacuity $u$) instead of giving a spurious confident answer.</p>
             </div>
 
             <div class="arch-box">
-                <div class="arch-box-title">🎯 Layer 3: Psychometrically-Grounded Career Mapping (System Novelty)</div>
+                <div class="arch-box-title">ðŸŽ¯ Layer 3: Psychometrically-Grounded Career Mapping (System Novelty)</div>
                 <p class="text-sm leading-relaxed"><strong>What:</strong> Map the Dirichlet cognitive profile through CHC (Cattell-Horn-Carroll) cognitive ability theory into O*NET occupational requirements, producing career fit scores with Bayesian credible intervals.</p>
                 <p class="text-sm leading-relaxed mt-1"><strong>Why justified:</strong> CHC theory is the most validated cognitive ability taxonomy in psychometrics (70+ years of research). O*NET is the US Department of Labor's standardized occupational database with ability requirements for 900+ occupations.</p>
-                <p class="text-sm leading-relaxed mt-1"><strong>What makes it novel:</strong> No prior system connects real-time EEG classification → CHC abilities → O*NET career mapping with uncertainty propagation.</p>
+                <p class="text-sm leading-relaxed mt-1"><strong>What makes it novel:</strong> No prior system connects real-time EEG classification â†’ CHC abilities â†’ O*NET career mapping with uncertainty propagation.</p>
             </div>
         </div>
 
-        <!-- ═══════════════════════════════════════════════ -->
+        <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
         <!-- SECTION 5 -->
-        <!-- ═══════════════════════════════════════════════ -->
+        <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
         <div class="section-card" id="s6">
-            <h2 class="text-xl font-bold mb-4 flex items-center"><span class="section-number">5</span> CogProfile-Net Architecture</h2>
+            <h2 class="text-xl font-bold mb-4 flex items-center"><span class="section-number">5</span> CogProfile-Net v2 â€” Full Architecture</h2>
 
-            <h3 class="font-semibold text-base mt-4 mb-3">5.1 Full Architecture Diagram</h3>
-            <p class="text-sm leading-relaxed mb-3">Every component has a <strong>clear, defensible justification</strong> tied to a specific problem in our constraint set. Nothing is included for impressiveness alone.</p>
+            <p class="text-sm leading-relaxed mb-4">CogProfile-Net v2 represents a fundamental upgrade from handcrafted PSD/DE features to an end-to-end deep learning pipeline. It integrates five distinct innovations â€” each solving a specific, documented problem â€” into a single trainable system.</p>
 
-            <!-- ARCHITECTURE VISUAL DIAGRAM -->
-            <div style="display:flex;flex-direction:column;gap:0;align-items:center;margin:1.5rem 0;background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px;padding:1.5rem;">
-                <div style="font-size:0.75rem;font-weight:700;color:#0f766e;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.75rem;">CogProfile-Net Architecture</div>
+            <div class="callout callout-success mb-4">
+                <strong>Novel Claim (One Sentence):</strong> CogProfile-Net v2 is the first system to combine CWT scalogram stacking, Riemannian SPD geometry, deep embedded clustering, and evidential uncertainty quantification into a unified EEG cognitive profiler, with a generative Digital Twin for longitudinal career trajectory simulation.
+            </div>
+
+            <h3 class="font-semibold text-base mt-5 mb-3">5.1 Full Architecture Diagram (CogProfile-Net v2)</h3>
+
+            <!-- FULL ARCHITECTURE VISUAL DIAGRAM -->
+            <div style="display:flex;flex-direction:column;gap:0;align-items:center;margin:1.5rem 0;background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px;padding:2rem 1.5rem;">
+                <div style="font-size:0.75rem;font-weight:700;color:#0f766e;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem;">CogProfile-Net v2 â€” End-to-End Pipeline</div>
+
                 <!-- INPUT -->
-                <div style="background:#fef3c7;border:2px solid #fbbf24;border-radius:10px;padding:0.75rem 1.25rem;width:100%;max-width:500px;text-align:center;">
-                    <strong style="font-size:0.85rem;">INPUT:</strong> <span style="font-size:0.82rem;">Raw EEG sub-window X ∈ ℝ<sup>14×128</sup></span>
+                <div style="background:#fef3c7;border:2px solid #fbbf24;border-radius:10px;padding:0.75rem 1.25rem;width:100%;max-width:560px;text-align:center;">
+                    <strong style="font-size:0.85rem;">INPUT:</strong> <span style="font-size:0.82rem;">Raw EEG Trial X âˆˆ â„<sup>14Ã—512</sup> â†’ Sub-windowed to (14 Ã— 128) per 1s window</span>
                 </div>
-                <div style="font-size:1.25rem;color:#0f766e;line-height:1;padding:0.2rem 0;">▼</div>
-                <!-- Component 1 -->
-                <div style="background:#fff;border:2px solid #0f766e;border-radius:10px;padding:1rem 1.25rem;width:100%;max-width:500px;">
-                    <div style="display:flex;align-items:center;gap:0.4rem;margin-bottom:0.4rem;">
-                        <span style="background:#0f766e;color:white;font-size:0.65rem;font-weight:700;padding:2px 6px;border-radius:4px;">C1</span>
-                        <strong style="font-size:0.85rem;color:#064e3b;">Learnable Temporal Filterbank</strong>
+                <div style="font-size:1.25rem;color:#0f766e;padding:0.25rem 0;">â–¼</div>
+
+                <!-- DUAL BRANCH -->
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;width:100%;max-width:580px;">
+                    <!-- Branch A: Scalogram -->
+                    <div style="background:linear-gradient(135deg,#eff6ff,#dbeafe);border:2px solid #3b82f6;border-radius:10px;padding:1rem;">
+                        <div style="display:flex;align-items:center;gap:0.4rem;margin-bottom:0.5rem;">
+                            <span style="background:#2563eb;color:white;font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:4px;">A</span>
+                            <strong style="font-size:0.82rem;color:#1e3a5f;">CWT Scalogram Branch</strong>
+                        </div>
+                        <p style="font-size:0.75rem;color:#1e40af;margin:0;">Complex Morlet CWT per channel</p>
+                        <p style="font-size:0.75rem;color:#1e40af;margin:0.2rem 0 0 0;">Stack 14 scalograms â†’ (14, 64, 128)</p>
+                        <p style="font-size:0.75rem;color:#1e40af;margin:0.2rem 0 0 0;">EEGNet-style 2D CNN encoder</p>
+                        <p style="font-size:0.72rem;color:#1d4ed8;margin:0.4rem 0 0 0;font-weight:600;">Output: z_A âˆˆ â„<sup>128</sup></p>
                     </div>
-                    <p style="font-size:0.78rem;color:#57534e;margin:0;">SincNet / depthwise temporal convolutions</p>
-                    <p style="font-size:0.72rem;color:#78716c;margin:0.2rem 0 0 0;font-style:italic;">WHY: Replaces manual Welch PSD computation</p>
-                    <p style="font-size:0.75rem;color:#0f766e;margin:0.3rem 0 0 0;font-weight:600;">Output: X<sub>filtered</sub> ∈ ℝ<sup>14×F×T'</sup></p>
-                </div>
-                <div style="font-size:1.25rem;color:#0f766e;line-height:1;padding:0.2rem 0;">▼</div>
-                <!-- Dual branch -->
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;width:100%;max-width:540px;">
-                    <!-- Component 2: SPD -->
+                    <!-- Branch B: Riemannian -->
                     <div style="background:linear-gradient(135deg,#f0fdfa,#ccfbf1);border:2px solid #14b8a6;border-radius:10px;padding:1rem;">
-                        <div style="display:flex;align-items:center;gap:0.4rem;margin-bottom:0.4rem;">
-                            <span style="background:#0d9488;color:white;font-size:0.65rem;font-weight:700;padding:2px 6px;border-radius:4px;">C2</span>
-                            <strong style="font-size:0.82rem;color:#064e3b;">Riemannian SPD Encoder</strong>
+                        <div style="display:flex;align-items:center;gap:0.4rem;margin-bottom:0.5rem;">
+                            <span style="background:#0d9488;color:white;font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:4px;">B</span>
+                            <strong style="font-size:0.82rem;color:#064e3b;">Riemannian SPD Branch</strong>
                         </div>
-                        <p style="font-size:0.75rem;color:#115e59;margin:0;">Σ = X·Xᵀ ∈ S<sub>++</sub><sup>14</sup></p>
-                        <p style="font-size:0.75rem;color:#115e59;margin:0.2rem 0 0 0;">BiMap → ReEig → LogEig</p>
-                        <p style="font-size:0.7rem;color:#78716c;margin:0.3rem 0 0 0;font-style:italic;">WHY: Mathematically invariant to skull/impedance noise</p>
-                        <p style="font-size:0.72rem;color:#0f766e;margin:0.3rem 0 0 0;font-weight:600;">Output: v ∈ ℝ<sup>d</sup></p>
-                    </div>
-                    <!-- Component 3: Temporal -->
-                    <div style="background:linear-gradient(135deg,#eff6ff,#dbeafe);border:2px solid #60a5fa;border-radius:10px;padding:1rem;">
-                        <div style="display:flex;align-items:center;gap:0.4rem;margin-bottom:0.4rem;">
-                            <span style="background:#2563eb;color:white;font-size:0.65rem;font-weight:700;padding:2px 6px;border-radius:4px;">C3</span>
-                            <strong style="font-size:0.82rem;color:#1e3a5f;">Temporal Encoder</strong>
-                        </div>
-                        <p style="font-size:0.75rem;color:#1e40af;margin:0;">BiGRU / 1D-CNN on temporal features</p>
-                        <p style="font-size:0.7rem;color:#78716c;margin:0.3rem 0 0 0;font-style:italic;">WHY: Captures temporal dynamics that static covariance does not encode</p>
-                        <p style="font-size:0.72rem;color:#2563eb;margin:0.3rem 0 0 0;font-weight:600;">Output: h<sub>t</sub> ∈ ℝ<sup>d</sup></p>
+                        <p style="font-size:0.75rem;color:#115e59;margin:0;">Î£ = XÂ·Xáµ€ âˆˆ S<sub>++</sub><sup>14</sup></p>
+                        <p style="font-size:0.75rem;color:#115e59;margin:0.2rem 0 0 0;">BiMap(14â†’8) â†’ ReEig â†’ BiMap(8â†’6)</p>
+                        <p style="font-size:0.75rem;color:#115e59;margin:0.2rem 0 0 0;">LogEig â†’ Euclidean vec âˆˆ â„<sup>21</sup></p>
+                        <p style="font-size:0.72rem;color:#0f766e;margin:0.4rem 0 0 0;font-weight:600;">Output: z_B âˆˆ â„<sup>64</sup></p>
                     </div>
                 </div>
-                <!-- Merge arrow -->
-                <div style="display:flex;justify-content:center;gap:0;width:100%;max-width:540px;">
-                    <div style="flex:1;border-bottom:2px solid #0f766e;margin-top:0.5rem;"></div>
-                    <div style="flex:1;border-bottom:2px solid #0f766e;margin-top:0.5rem;"></div>
-                </div>
-                <div style="font-size:1.25rem;color:#0f766e;line-height:1;padding:0.1rem 0;">▼</div>
-                <!-- Component 4 -->
-                <div style="background:#fff;border:2px solid #f59e0b;border-radius:10px;padding:1rem 1.25rem;width:100%;max-width:500px;">
+                <div style="font-size:1.25rem;color:#0f766e;padding:0.25rem 0;">â–¼</div>
+
+                <!-- FUSION -->
+                <div style="background:#fff;border:2px solid #f59e0b;border-radius:10px;padding:1rem 1.25rem;width:100%;max-width:560px;">
                     <div style="display:flex;align-items:center;gap:0.4rem;margin-bottom:0.4rem;">
-                        <span style="background:#d97706;color:white;font-size:0.65rem;font-weight:700;padding:2px 6px;border-radius:4px;">C4</span>
-                        <strong style="font-size:0.85rem;color:#78350f;">Feature Fusion + Behavioral Gating</strong>
+                        <span style="background:#d97706;color:white;font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:4px;">F</span>
+                        <strong style="font-size:0.85rem;color:#78350f;">Attention-Gated Fusion + Behavioral Gate</strong>
                     </div>
-                    <p style="font-size:0.78rem;color:#57534e;margin:0;">Concatenate [v; h<sub>t</sub>] + gated cross-attention with behavioral metadata (RT, difficulty, accuracy)</p>
-                    <p style="font-size:0.72rem;color:#78716c;margin:0.2rem 0 0 0;font-style:italic;">+ Anti-shortcut auxiliary EEG-only classification head</p>
+                    <p style="font-size:0.78rem;color:#57534e;margin:0;">Gate: g = Ïƒ(Linear(z_A â€– z_B)) â†’ z = gâŠ™z_A + (1âˆ’g)âŠ™z_B</p>
+                    <p style="font-size:0.78rem;color:#57534e;margin:0.2rem 0 0 0;">Late behavioral fusion: RT, difficulty, accuracy via gated MLP</p>
+                    <p style="font-size:0.72rem;color:#d97706;margin:0.3rem 0 0 0;font-weight:600;">Orthogonality loss keeps branches complementary Â· Anti-shortcut auxiliary EEG-only head</p>
                 </div>
-                <div style="font-size:1.25rem;color:#0f766e;line-height:1;padding:0.2rem 0;">▼</div>
-                <!-- Component 5 -->
-                <div style="background:linear-gradient(135deg,#fdf2f8,#fce7f3);border:2px solid #f472b6;border-radius:10px;padding:1rem 1.25rem;width:100%;max-width:500px;">
+                <div style="font-size:1.25rem;color:#0f766e;padding:0.25rem 0;">â–¼</div>
+
+                <!-- DEC CLUSTERING -->
+                <div style="background:linear-gradient(135deg,#fdf4ff,#fae8ff);border:2px solid #c084fc;border-radius:10px;padding:1rem 1.25rem;width:100%;max-width:560px;">
                     <div style="display:flex;align-items:center;gap:0.4rem;margin-bottom:0.4rem;">
-                        <span style="background:#db2777;color:white;font-size:0.65rem;font-weight:700;padding:2px 6px;border-radius:4px;">C5</span>
-                        <strong style="font-size:0.85rem;color:#831843;">Evidential Classification Head (EDL)</strong>
+                        <span style="background:#9333ea;color:white;font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:4px;">C</span>
+                        <strong style="font-size:0.85rem;color:#581c87;">Deep Embedded Clustering (DEC)</strong>
                     </div>
-                    <p style="font-size:0.78rem;color:#9d174d;margin:0;">Dense → Softplus → evidence e ∈ ℝ<sup>5</sup></p>
-                    <p style="font-size:0.78rem;color:#9d174d;margin:0.1rem 0 0 0;">Dirichlet: α<sub>k</sub> = e<sub>k</sub> + 1, &nbsp; p<sub>k</sub> = α<sub>k</sub> / S, &nbsp; Uncertainty: u = K / S</p>
-                    <p style="font-size:0.72rem;color:#78716c;margin:0.2rem 0 0 0;font-style:italic;">WHY: Calibrated probabilities + "I don't know" signal</p>
-                    <p style="font-size:0.75rem;color:#db2777;margin:0.3rem 0 0 0;font-weight:700;">Output: Dir(α), p<sub>k</sub>, u</p>
+                    <p style="font-size:0.78rem;color:#6b21a8;margin:0;">k=8 clusters (5 cognitive + 3 noise) via Student-t soft assignments q_ij</p>
+                    <p style="font-size:0.78rem;color:#6b21a8;margin:0.2rem 0 0 0;">KL(Pâ€–Q) self-supervised loss Â· Noise clusters down-weighted 0.1Ã— in CE loss</p>
+                    <p style="font-size:0.72rem;color:#7e22ce;margin:0.3rem 0 0 0;font-weight:600;">WHY: Label noise from temporal sub-windowing â€” DEC identifies and de-weights mislabelled windows</p>
                 </div>
-                <div style="font-size:1.25rem;color:#0f766e;line-height:1;padding:0.2rem 0;">▼</div>
-                <!-- Component 6 -->
-                <div style="background:linear-gradient(135deg,#faf5ff,#f3e8ff);border:2px solid #a78bfa;border-radius:10px;padding:1rem 1.25rem;width:100%;max-width:500px;">
+                <div style="font-size:1.25rem;color:#0f766e;padding:0.25rem 0;">â–¼</div>
+
+                <!-- EDL HEAD -->
+                <div style="background:linear-gradient(135deg,#fdf2f8,#fce7f3);border:2px solid #f472b6;border-radius:10px;padding:1rem 1.25rem;width:100%;max-width:560px;">
                     <div style="display:flex;align-items:center;gap:0.4rem;margin-bottom:0.4rem;">
-                        <span style="background:#7c3aed;color:white;font-size:0.65rem;font-weight:700;padding:2px 6px;border-radius:4px;">C6</span>
-                        <strong style="font-size:0.85rem;color:#3b0764;">Career Mapping Layer (Post-hoc)</strong>
+                        <span style="background:#db2777;color:white;font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:4px;">E</span>
+                        <strong style="font-size:0.85rem;color:#831843;">Evidential Deep Learning Head (EDL)</strong>
                     </div>
-                    <p style="font-size:0.78rem;color:#581c87;margin:0;">CHC alignment → O*NET lookup → Monte Carlo sampling</p>
-                    <p style="font-size:0.78rem;color:#581c87;margin:0.1rem 0 0 0;">Abstention when u &gt; threshold</p>
-                    <p style="font-size:0.75rem;color:#7c3aed;margin:0.3rem 0 0 0;font-weight:700;">Output: Career fit scores + 95% credible intervals</p>
+                    <p style="font-size:0.78rem;color:#9d174d;margin:0;">Softplus â†’ evidence e â‰¥ 0, Î±_k = e_k + 1, S = Î£Î±_k</p>
+                    <p style="font-size:0.78rem;color:#9d174d;margin:0.2rem 0 0 0;">pÌ‚_k = Î±_k / S (probability) Â· u = K/S (uncertainty vacuity)</p>
+                    <p style="font-size:0.72rem;color:#db2777;margin:0.3rem 0 0 0;font-weight:600;">Output: Dir(Î±) â€” full probabilistic cognitive profile, NOT a point estimate</p>
+                </div>
+                <div style="font-size:1.25rem;color:#0f766e;padding:0.25rem 0;">â–¼</div>
+
+                <!-- DIGITAL TWIN -->
+                <div style="background:linear-gradient(135deg,#fff7ed,#ffedd5);border:2px solid #fb923c;border-radius:10px;padding:1rem 1.25rem;width:100%;max-width:560px;">
+                    <div style="display:flex;align-items:center;gap:0.4rem;margin-bottom:0.4rem;">
+                        <span style="background:#ea580c;color:white;font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:4px;">T</span>
+                        <strong style="font-size:0.85rem;color:#7c2d12;">EEG Digital Twin â€” Variational State-Space Model</strong>
+                    </div>
+                    <p style="font-size:0.78rem;color:#9a3412;margin:0;">z_t = GRU(z_{t-1}, [EEG_emb â€– RT, difficulty, accuracy])</p>
+                    <p style="font-size:0.78rem;color:#9a3412;margin:0.2rem 0 0 0;">Simulates K future sessions: how cognitive profile evolves with practice</p>
+                    <p style="font-size:0.72rem;color:#ea580c;margin:0.3rem 0 0 0;font-weight:600;">â˜… THE NOVEL CONTRIBUTION: No prior work simulates EEG â†’ cognitive trajectory â†’ career evolution forecasting</p>
+                </div>
+                <div style="font-size:1.25rem;color:#0f766e;padding:0.25rem 0;">â–¼</div>
+
+                <!-- CAREER MAPPING -->
+                <div style="background:linear-gradient(135deg,#faf5ff,#f3e8ff);border:2px solid #a78bfa;border-radius:10px;padding:1rem 1.25rem;width:100%;max-width:560px;">
+                    <div style="display:flex;align-items:center;gap:0.4rem;margin-bottom:0.4rem;">
+                        <span style="background:#7c3aed;color:white;font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:4px;">O</span>
+                        <strong style="font-size:0.85rem;color:#3b0764;">CHC â†’ O*NET Career Mapping Layer</strong>
+                    </div>
+                    <p style="font-size:0.78rem;color:#581c87;margin:0;">Fit_j = Î£_k p_k Â· W_{kj} Â· Cosine similarity vs. O*NET ability matrix</p>
+                    <p style="font-size:0.78rem;color:#581c87;margin:0.2rem 0 0 0;">Abstention when u > 0.5 Â· 95% CI via Monte Carlo sampling from Dir(Î±)</p>
+                    <p style="font-size:0.75rem;color:#7c3aed;margin:0.4rem 0 0 0;font-weight:700;">Output: Career fit scores + Projected trajectory across N future sessions</p>
                 </div>
             </div>
 
-            <h3 class="font-semibold text-base mt-5 mb-2">5.2 Riemannian SPD Encoder — Mathematical Detail</h3>
-            <p class="text-sm leading-relaxed mb-3">The core encoder operates on the <strong>Symmetric Positive Definite (SPD) manifold</strong> $\mathcal{S}_{++}^{14}$ rather than Euclidean space. This is not a design choice — it is a mathematical necessity. Spatial covariance matrices of EEG channels are inherently SPD, and applying Euclidean operations (standard CNNs, flat MLPs) distorts their intrinsic geometry.</p>
+            <h3 class="font-semibold text-base mt-6 mb-2">5.2 CWT Scalogram Stacking â€” Mathematical Detail</h3>
+            <p class="text-sm leading-relaxed mb-3">The Continuous Wavelet Transform (CWT) converts 1D EEG signals into 2D time-frequency scalograms that capture both <strong>temporal transients</strong> and <strong>spectral content</strong> simultaneously â€” something PSD and DE features fundamentally cannot do.</p>
+            <p class="text-sm mb-3">$$\text{CWT}_x(a,b) = \frac{1}{\sqrt{|a|}} \int_{-\infty}^{\infty} x(t)\, \psi^*\!\left(\frac{t-b}{a}\right) dt$$</p>
+            <p class="text-sm text-stone-500 mb-3">Using complex Morlet wavelet $\psi(t) = \pi^{-1/4} e^{i\omega_0 t} e^{-t^2/2}$. Power scalogram: $|\text{CWT}(a,b)|^2$. Logarithmically-spaced scales: 64 frequency bins from 1â€“45 Hz.</p>
+            <p class="text-sm leading-relaxed mb-3"><strong>Stacking:</strong> For 14 channels, compute 14 independent scalograms, stack along channel axis â†’ tensor <strong>(14, 64, 128)</strong>. This is treated as a 14-channel "image" and processed by a 2D CNN, analogous to how RGB images have 3 channels.</p>
 
-            <p class="text-sm leading-relaxed mb-2"><strong>Step 1 — Spatial Covariance Matrix:</strong></p>
-            <p class="text-sm mb-3">$$\Sigma = \frac{1}{T-1}(X - \bar{X})(X - \bar{X})^\top + \epsilon I \in \mathcal{S}_{++}^{14}$$</p>
-
-            <p class="text-sm leading-relaxed mb-2"><strong>Step 2 — BiMap Layer</strong> (Riemannian fully connected): Projects the SPD matrix to a lower-dimensional manifold via semi-orthogonal weight matrices on the Stiefel manifold:</p>
-            <p class="text-sm mb-3">$$\Sigma^{(l+1)} = W_l \Sigma^{(l)} W_l^\top, \quad W_l \in \mathrm{St}(d_l, d_{l-1})$$</p>
-            <p class="text-sm text-stone-500 mb-3">Dimensionality reduction path: 14 → 8 → 6, preserving positive-definiteness at every layer.</p>
-
-            <p class="text-sm leading-relaxed mb-2"><strong>Step 3 — ReEig Layer</strong> (Riemannian ReLU): Prevents eigenvalue collapse near the manifold boundary:</p>
-            <p class="text-sm mb-3">$$\Sigma' = U \max(\Lambda, \epsilon I) U^\top$$</p>
-
-            <p class="text-sm leading-relaxed mb-2"><strong>Step 4 — LogEig Layer</strong> (Manifold → Euclidean): Projects the manifold representation into flat tangent space for downstream classification:</p>
-            <p class="text-sm mb-3">$$v = \mathrm{vec}\left(\log(\Sigma')\right) = \mathrm{vec}\left(U \log(\Lambda) U^\top\right)$$</p>
-
-            <div class="callout callout-success">
-                <strong>Why this matters for inter-subject robustness:</strong> Variations in skull thickness, electrode impedance, and global amplitude scaling between participants manifest as linear transformations of the covariance matrix. Riemannian geodesic distances are invariant to such transformations — meaning the SPD encoder inherently strips away a large portion of the subject-specific "neural fingerprint" without any adversarial training or explicit domain adaptation.
+            <div class="callout callout-warn">
+                <strong>Edge effect caveat (transparently disclosed):</strong> Delta-band (0.5â€“4 Hz) oscillations have periods of 0.25â€“2 seconds. A 1-second window cannot contain a full delta cycle. We mitigate this by padding each window by 32 samples before CWT and cropping after, and by focusing model attention on theta/alpha/beta/gamma bands which are fully resolvable in a 1-second window.
             </div>
 
-            <h3 class="font-semibold text-base mt-5 mb-2">5.3 Evidential Deep Learning Head — Mathematical Detail</h3>
-            <p class="text-sm leading-relaxed mb-3">Instead of standard softmax (which squashes logits into overconfident point estimates), the final layer outputs non-negative <strong>evidence</strong> values that parameterize a Dirichlet distribution over class probabilities:</p>
+            <h3 class="font-semibold text-base mt-5 mb-2">5.3 Deep Embedded Clustering (DEC) â€” Mathematical Detail</h3>
+            <p class="text-sm leading-relaxed mb-3">DEC addresses a critical problem unique to sub-window EEG datasets: <strong>temporal label noise</strong>. A subject performing a "Working Memory" task may experience attentional lapses during some 1-second sub-windows. Hard-labelling all sub-windows of a trial identically causes deep networks to memorise noise. DEC discovers and de-weights these mislabelled windows automatically.</p>
+            <p class="text-sm mb-1"><strong>Soft assignment (Student-t kernel):</strong></p>
+            <p class="text-sm mb-3">$$q_{ij} = \frac{(1 + \|z_i - \mu_j\|^2)^{-1}}{\sum_{j'}(1 + \|z_i - \mu_{j'}\|^2)^{-1}}$$</p>
+            <p class="text-sm mb-1"><strong>Self-supervised sharpened target:</strong></p>
+            <p class="text-sm mb-3">$$p_{ij} = \frac{q_{ij}^2 / f_j}{\sum_{j'} q_{ij'}^2 / f_{j'}}, \quad f_j = \sum_i q_{ij}$$</p>
+            <p class="text-sm mb-3">$$\mathcal{L}_{\text{DEC}} = \text{KL}(P \| Q) = \sum_i \sum_j p_{ij} \log \frac{p_{ij}}{q_{ij}}$$</p>
 
-            <p class="text-sm mb-1"><strong>Evidence to Dirichlet parameters:</strong></p>
-            <p class="text-sm mb-3">$$\alpha_k = e_k + 1, \quad S = \sum_{k=1}^{K} \alpha_k$$</p>
+            <h3 class="font-semibold text-base mt-5 mb-2">5.4 EEG Digital Twin â€” Design and Simulation Protocol</h3>
+            <p class="text-sm leading-relaxed mb-3">The Digital Twin is a <strong>per-subject variational recurrent state-space model</strong> â€” NOT a biophysical brain simulator. It maintains a personalized latent cognitive state $z_t \in \mathbb{R}^{32}$ that is updated after each session using EEG embeddings and behavioral metadata.</p>
+            <p class="text-sm mb-1"><strong>State update equation:</strong></p>
+            <p class="text-sm mb-3">$$z_t = \text{GRU}_\theta(z_{t-1},\ [x_t \,\|\, b_t]), \quad \hat{y}_t = g_\phi(z_t)$$</p>
+            <p class="text-sm text-stone-500 mb-3">where $x_t$ = EEG embedding, $b_t$ = [reaction time, difficulty, accuracy], $\hat{y}_t$ = predicted cognitive profile $\text{Dir}(\alpha)$.</p>
+            <p class="text-sm leading-relaxed mb-3"><strong>Simulation mode:</strong> Given a subject's current state after $N_0$ sessions, the twin simulates $K$ future sessions using a learning-curve behavioral prior (RT decreases, accuracy improves monotonically with practice). This yields a <strong>cognitive trajectory</strong> â€” a time series of predicted cognitive profiles â€” which is then mapped to career fitness trajectories via CHC/O*NET.</p>
 
-            <p class="text-sm mb-1"><strong>Expected class probability:</strong></p>
-            <p class="text-sm mb-3">$$\hat{p}_k = \frac{\alpha_k}{S}$$</p>
-
-            <p class="text-sm mb-1"><strong>Epistemic uncertainty (vacuity):</strong></p>
-            <p class="text-sm mb-3">$$u = \frac{K}{S} \in (0, 1]$$</p>
-
+            <h3 class="font-semibold text-base mt-5 mb-2">5.5 Complete Training Loss</h3>
+            <p class="text-sm mb-3">$$\mathcal{L}_{\text{total}} = \underbrace{\mathcal{L}_{\text{EDL}}}_{\text{evidential CE}} + \alpha_{\text{DEC}}\underbrace{\mathcal{L}_{\text{DEC}}}_{\text{cluster self-supervision}} + \alpha_{\text{orth}}\underbrace{\mathcal{L}_{\text{orth}}}_{\text{branch diversity}} + \alpha_{\text{aux}}\underbrace{\mathcal{L}_{\text{aux}}}_{\text{anti-shortcut}}$$</p>
             <table>
-                <thead><tr><th>Scenario</th><th>Evidence</th><th>Dirichlet Strength S</th><th>Uncertainty u</th><th>Interpretation</th></tr></thead>
+                <thead><tr><th>Term</th><th>Purpose</th><th>Weight</th></tr></thead>
                 <tbody>
-                    <tr><td>Total ignorance (new/unseen pattern)</td><td>$e_k = 0 \;\forall k$</td><td>$S = K = 5$</td><td>$u = 1.0$</td><td>"I have no idea" → refuse to recommend</td></tr>
-                    <tr><td>High confidence (familiar pattern)</td><td>$e_{\text{math}} = 95$</td><td>$S \gg K$</td><td>$u \approx 0.05$</td><td>"High confidence: arithmetic task" → recommend</td></tr>
-                    <tr><td>Conflicting evidence (noisy signal)</td><td>$e_k \approx 10 \;\forall k$</td><td>$S = 55$</td><td>$u = 0.09$</td><td>Low uncertainty but flat → signal quality flag</td></tr>
+                    <tr><td>$\mathcal{L}_{\text{EDL}}$</td><td>Evidential MSE + KL regularizer. Drives calibrated probabilistic output.</td><td>1.0</td></tr>
+                    <tr><td>$\mathcal{L}_{\text{DEC}}$</td><td>Deep Embedded Clustering self-supervision. Discovers and de-weights noise sub-windows.</td><td>0.1</td></tr>
+                    <tr><td>$\mathcal{L}_{\text{orth}}$</td><td>Orthogonality between scalogram (z_A) and Riemannian (z_B) embeddings. Forces complementary representations.</td><td>0.05</td></tr>
+                    <tr><td>$\mathcal{L}_{\text{aux}}$</td><td>Anti-shortcut loss on EEG-only head. Prevents model from ignoring EEG and relying purely on behavioral metadata.</td><td>0.3</td></tr>
                 </tbody>
             </table>
 
-            <p class="text-sm leading-relaxed mt-3 mb-2"><strong>Evidential Loss Function (Sensoy et al., 2018):</strong></p>
-            <p class="text-sm mb-3">$$\mathcal{L}_{\text{EDL}} = \sum_{k=1}^{K} y_k \left(\psi(S) - \psi(\alpha_k)\right) + \lambda_t \cdot \text{KL}\left[\text{Dir}(\tilde{\boldsymbol{\alpha}}) \,\|\, \text{Dir}(\mathbf{1})\right]$$</p>
-            <p class="text-sm text-stone-500 mb-3">where $\psi(\cdot)$ is the Digamma function, $\tilde{\alpha}_k = y_k + (1-y_k)\alpha_k$, and $\lambda_t = \min(1, t/10)$ anneals the KL regularizer over the first 10 epochs.</p>
-
-            <h3 class="font-semibold text-base mt-5 mb-2">5.4 Complete Loss Function</h3>
-            <p class="text-sm mb-3">$$\mathcal{L}_{\text{total}} = \mathcal{L}_{\text{EDL}}(\boldsymbol{\alpha}, \mathbf{y}) + \lambda_1 \mathcal{L}_{\text{aux}}^{\text{EEG-only}} + \lambda_2 \mathcal{L}_{\text{center}}$$</p>
+            <h3 class="font-semibold text-base mt-5 mb-2">5.6 Component Justification Table</h3>
             <table>
-                <thead><tr><th>Term</th><th>Purpose</th></tr></thead>
+                <thead><tr><th>Component</th><th>Problem It Solves</th><th>What Happens Without It</th><th>Key Reference</th></tr></thead>
                 <tbody>
-                    <tr><td>$\mathcal{L}_{\text{EDL}}$</td><td>Evidential classification with KL regularizer. Penalizes overconfidence and drives uncertain samples toward a uniform prior.</td></tr>
-                    <tr><td>$\mathcal{L}_{\text{aux}}^{\text{EEG-only}}$</td><td>Auxiliary EEG-only branch prevents behavioral metadata shortcut learning. Guarantees the model works without behavioral data.</td></tr>
-                    <tr><td>$\mathcal{L}_{\text{center}}$</td><td>Pulls tangent-space representations toward class centroids: $\sum_i \|v_i - c_{y_i}\|_2^2$. Improves manifold clustering.</td></tr>
-                </tbody>
-            </table>
-
-            <h3 class="font-semibold text-base mt-5 mb-2">5.5 Component Justification Table</h3>
-            <table>
-                <thead><tr><th>Component</th><th>Problem It Solves</th><th>What Happens If Removed</th><th>Literature Support</th></tr></thead>
-                <tbody>
-                    <tr><td>Learnable Filterbank</td><td>Manual PSD computation bottleneck</td><td>Must hand-engineer 252 features</td><td>EE(G)-SPDNet 2024; SincNet</td></tr>
-                    <tr><td>Riemannian SPD Encoder</td><td>Inter-subject amplitude/impedance noise</td><td>Accuracy degrades 5–10% on unseen subjects</td><td>Tibermacine 2026, Jin 2026</td></tr>
-                    <tr><td>Temporal Encoder</td><td>Static covariance misses temporal dynamics</td><td>Loses within-window transient information</td><td>Standard temporal modeling</td></tr>
-                    <tr><td>Behavioral Gating</td><td>Model ignores EEG, overfits on reaction time</td><td>Accuracy inflated but useless without metadata</td><td>Kessler 2024</td></tr>
-                    <tr><td>Evidential Head (EDL)</td><td>Softmax overconfidence on small data</td><td>Career recommendations are dangerously confident</td><td>Sensoy 2018, TRUEE 2025</td></tr>
-                    <tr><td>Career Mapper</td><td>No actionable output from classification</td><td>System is just another accuracy benchmark paper</td><td>Novel contribution</td></tr>
+                    <tr><td>CWT Scalogram Stacking</td><td>PSD/DE miss transient high-frequency bursts and temporal structure</td><td>Time-frequency biomarkers (gamma bursts, theta rhythms) undetected</td><td>Mohanto et al. 2026; TÃ¼rk &amp; Ã–zerdem 2019</td></tr>
+                    <tr><td>Riemannian SPD Encoder</td><td>Inter-subject amplitude/impedance variability</td><td>Model overfits per-subject amplitude scale; poor cross-subject generalization</td><td>Tibermacine 2026; Jin 2026</td></tr>
+                    <tr><td>Deep Embedded Clustering</td><td>Temporal label noise from sub-windowing</td><td>DL model memorises noise; catastrophic overfitting on 25 subjects</td><td>Xie et al. 2016; Chakladar 2024</td></tr>
+                    <tr><td>Behavioral Gating</td><td>Model shortcut: predict from RT alone, ignore EEG</td><td>Inflated accuracy, useless without metadata at test time</td><td>Khanam et al. 2023</td></tr>
+                    <tr><td>EDL Head</td><td>Softmax overconfidence on small data</td><td>Career recommendations dangerously confident on uncertain inputs</td><td>Sensoy et al. 2018; TRUEE 2025</td></tr>
+                    <tr><td>Digital Twin (GRU-SSM)</td><td>Static classifier cannot model cognitive growth over time</td><td>No longitudinal insight; system is just another accuracy benchmark</td><td>Takahashi et al. 2025; Novel</td></tr>
+                    <tr><td>CHC/O*NET Mapping</td><td>No actionable career output from EEG classification</td><td>System has no real-world application beyond academic benchmarking</td><td>McGrew 2009; O*NET Content Model</td></tr>
                 </tbody>
             </table>
 
            
         </div>
 
-        <!-- ═══════════════════════════════════════════════ -->
+
+        <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
         <!-- SECTION 6 -->
-        <!-- ═══════════════════════════════════════════════ -->
+        <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+        <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+        <!-- SECTION 6 -->
+        <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
         <div class="section-card" id="s7">
             <h2 class="text-xl font-bold mb-4 flex items-center"><span class="section-number">6</span> Cognitive-to-Career Mapping Layer</h2>
 
-            <h3 class="font-semibold text-base mt-4 mb-2">6.1 Step 1 — EEG Tasks → CHC Cognitive Abilities</h3>
-            <p class="text-sm leading-relaxed mb-3">The mapping is grounded in <strong>Cattell-Horn-Carroll (CHC) theory</strong>, the most validated cognitive ability taxonomy in psychometrics (McGrew 2009, Keith &amp; Reynolds 2010). CHC organizes human cognitive abilities into a three-stratum hierarchy: General Intelligence ($g$) → 10 Broad Abilities → 70+ Narrow Abilities.</p>
+            <h3 class="font-semibold text-base mt-4 mb-2">6.1 Step 1 â€” EEG Tasks â†’ CHC Cognitive Abilities</h3>
+            <p class="text-sm leading-relaxed mb-3">The mapping is grounded in <strong>Cattell-Horn-Carroll (CHC) theory</strong>, the most validated cognitive ability taxonomy in psychometrics (McGrew 2009, Keith &amp; Reynolds 2010). CHC organizes human cognitive abilities into a three-stratum hierarchy: General Intelligence ($g$) â†’ 10 Broad Abilities â†’ 70+ Narrow Abilities.</p>
 
             <table>
                 <thead><tr><th>EEG Task</th><th>CHC Broad Ability</th><th>CHC Code</th><th>O*NET Ability Descriptor</th><th>Career Loading</th></tr></thead>
@@ -580,7 +585,7 @@
                 <strong>*Important caveat:</strong> Sustained Attention is not a clean CHC broad ability factor. It maps most closely to Processing Speed ($G_s$) via the WJ-III Pair Cancellation task, but it is more accurately described as an executive function / arousal construct. This distinction must be explicitly acknowledged in the paper.
             </div>
 
-            <h3 class="font-semibold text-base mt-5 mb-2">6.2 Step 2 — CHC Abilities → O*NET Career Fit Scores</h3>
+            <h3 class="font-semibold text-base mt-5 mb-2">6.2 Step 2 â€” CHC Abilities â†’ O*NET Career Fit Scores</h3>
             <p class="text-sm leading-relaxed mb-3">O*NET (US Dept. of Labor) provides importance and level ratings for 52 cognitive abilities across 900+ occupations. Our 5 EEG-derived abilities map to 5 of these 52 descriptors.</p>
 
             <p class="text-sm mb-1"><strong>Career fit score (point estimate):</strong></p>
@@ -613,11 +618,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td style="padding:0.4rem 0.6rem;font-size:0.8rem;color:#e2e8f0;border:none;border-bottom:1px solid #1e293b;">Mathematical Reasoning</td><td style="text-align:center;padding:0.4rem;font-size:0.85rem;font-weight:700;color:#5eead4;border:none;border-bottom:1px solid #1e293b;">0.15</td><td style="text-align:center;padding:0.4rem;font-size:0.78rem;color:#94a3b8;border:none;border-bottom:1px solid #1e293b;">±0.03</td></tr>
-                        <tr><td style="padding:0.4rem 0.6rem;font-size:0.8rem;color:#e2e8f0;border:none;border-bottom:1px solid #1e293b;">Pattern Recognition</td><td style="text-align:center;padding:0.4rem;font-size:0.85rem;font-weight:700;color:#5eead4;border:none;border-bottom:1px solid #1e293b;">0.30</td><td style="text-align:center;padding:0.4rem;font-size:0.78rem;color:#94a3b8;border:none;border-bottom:1px solid #1e293b;">±0.05</td></tr>
-                        <tr><td style="padding:0.4rem 0.6rem;font-size:0.8rem;color:#e2e8f0;border:none;border-bottom:1px solid #1e293b;">Working Memory</td><td style="text-align:center;padding:0.4rem;font-size:0.85rem;font-weight:700;color:#5eead4;border:none;border-bottom:1px solid #1e293b;">0.35</td><td style="text-align:center;padding:0.4rem;font-size:0.78rem;color:#94a3b8;border:none;border-bottom:1px solid #1e293b;">±0.04</td></tr>
-                        <tr><td style="padding:0.4rem 0.6rem;font-size:0.8rem;color:#e2e8f0;border:none;border-bottom:1px solid #1e293b;">Reading Comprehension</td><td style="text-align:center;padding:0.4rem;font-size:0.85rem;font-weight:700;color:#5eead4;border:none;border-bottom:1px solid #1e293b;">0.10</td><td style="text-align:center;padding:0.4rem;font-size:0.78rem;color:#94a3b8;border:none;border-bottom:1px solid #1e293b;">±0.02</td></tr>
-                        <tr><td style="padding:0.4rem 0.6rem;font-size:0.8rem;color:#e2e8f0;border:none;">Sustained Attention</td><td style="text-align:center;padding:0.4rem;font-size:0.85rem;font-weight:700;color:#5eead4;border:none;">0.10</td><td style="text-align:center;padding:0.4rem;font-size:0.78rem;color:#94a3b8;border:none;">±0.02</td></tr>
+                        <tr><td style="padding:0.4rem 0.6rem;font-size:0.8rem;color:#e2e8f0;border:none;border-bottom:1px solid #1e293b;">Mathematical Reasoning</td><td style="text-align:center;padding:0.4rem;font-size:0.85rem;font-weight:700;color:#5eead4;border:none;border-bottom:1px solid #1e293b;">0.15</td><td style="text-align:center;padding:0.4rem;font-size:0.78rem;color:#94a3b8;border:none;border-bottom:1px solid #1e293b;">Â±0.03</td></tr>
+                        <tr><td style="padding:0.4rem 0.6rem;font-size:0.8rem;color:#e2e8f0;border:none;border-bottom:1px solid #1e293b;">Pattern Recognition</td><td style="text-align:center;padding:0.4rem;font-size:0.85rem;font-weight:700;color:#5eead4;border:none;border-bottom:1px solid #1e293b;">0.30</td><td style="text-align:center;padding:0.4rem;font-size:0.78rem;color:#94a3b8;border:none;border-bottom:1px solid #1e293b;">Â±0.05</td></tr>
+                        <tr><td style="padding:0.4rem 0.6rem;font-size:0.8rem;color:#e2e8f0;border:none;border-bottom:1px solid #1e293b;">Working Memory</td><td style="text-align:center;padding:0.4rem;font-size:0.85rem;font-weight:700;color:#5eead4;border:none;border-bottom:1px solid #1e293b;">0.35</td><td style="text-align:center;padding:0.4rem;font-size:0.78rem;color:#94a3b8;border:none;border-bottom:1px solid #1e293b;">Â±0.04</td></tr>
+                        <tr><td style="padding:0.4rem 0.6rem;font-size:0.8rem;color:#e2e8f0;border:none;border-bottom:1px solid #1e293b;">Reading Comprehension</td><td style="text-align:center;padding:0.4rem;font-size:0.85rem;font-weight:700;color:#5eead4;border:none;border-bottom:1px solid #1e293b;">0.10</td><td style="text-align:center;padding:0.4rem;font-size:0.78rem;color:#94a3b8;border:none;border-bottom:1px solid #1e293b;">Â±0.02</td></tr>
+                        <tr><td style="padding:0.4rem 0.6rem;font-size:0.8rem;color:#e2e8f0;border:none;">Sustained Attention</td><td style="text-align:center;padding:0.4rem;font-size:0.85rem;font-weight:700;color:#5eead4;border:none;">0.10</td><td style="text-align:center;padding:0.4rem;font-size:0.78rem;color:#94a3b8;border:none;">Â±0.02</td></tr>
                     </tbody>
                 </table>
                 <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:1rem;">
@@ -630,28 +635,28 @@
                     <div style="display:flex;flex-direction:column;gap:0.4rem;">
                         <div style="display:flex;justify-content:space-between;align-items:center;">
                             <span style="font-size:0.8rem;color:#e2e8f0;">1. Data Analyst / Business Intelligence</span>
-                            <span style="font-size:0.8rem;font-weight:700;color:#5eead4;">78% ± 6%</span>
+                            <span style="font-size:0.8rem;font-weight:700;color:#5eead4;">78% Â± 6%</span>
                         </div>
                         <div style="display:flex;justify-content:space-between;align-items:center;">
                             <span style="font-size:0.8rem;color:#e2e8f0;">2. Software Developer / Engineer</span>
-                            <span style="font-size:0.8rem;font-weight:700;color:#5eead4;">72% ± 8%</span>
+                            <span style="font-size:0.8rem;font-weight:700;color:#5eead4;">72% Â± 8%</span>
                         </div>
                         <div style="display:flex;justify-content:space-between;align-items:center;">
                             <span style="font-size:0.8rem;color:#cbd5e1;">3. UX/UI Designer</span>
-                            <span style="font-size:0.8rem;font-weight:700;color:#99f6e4;">65% ± 10%</span>
+                            <span style="font-size:0.8rem;font-weight:700;color:#99f6e4;">65% Â± 10%</span>
                         </div>
                         <div style="display:flex;justify-content:space-between;align-items:center;">
                             <span style="font-size:0.8rem;color:#cbd5e1;">4. Research Scientist</span>
-                            <span style="font-size:0.8rem;font-weight:700;color:#99f6e4;">61% ± 9%</span>
+                            <span style="font-size:0.8rem;font-weight:700;color:#99f6e4;">61% Â± 9%</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- ═══════════════════════════════════════════════ -->
+        <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
         <!-- SECTION 7 -->
-        <!-- ═══════════════════════════════════════════════ -->
+        <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
         <div class="section-card" id="s8">
             <h2 class="text-xl font-bold mb-4 flex items-center"><span class="section-number">7</span> Validation Strategy</h2>
 
@@ -675,7 +680,7 @@
                     <strong class="text-sm">Tier 2: Classification &amp; Calibration Validity</strong>
                     <ul class="text-sm list-disc ml-4 mt-1 text-stone-600">
                         <li>5-class accuracy, Macro-F1, per-class AUROC</li>
-                        <li>Expected Calibration Error (ECE ↓), Brier Score</li>
+                        <li>Expected Calibration Error (ECE â†“), Brier Score</li>
                         <li>Reliability diagrams, uncertainty quality (OOD detection AUROC)</li>
                         <li>Permutation test (p &lt; 0.001), bootstrap confidence intervals</li>
                     </ul>
@@ -726,9 +731,9 @@
             </div>
         </div>
 
-        <!-- ═══════════════════════════════════════════════ -->
+        <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
         <!-- SECTION 8 -->
-        <!-- ═══════════════════════════════════════════════ -->
+        <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
         <div class="section-card" id="s8">
             <h2 class="text-xl font-bold mb-4 flex items-center"><span class="section-number">8</span> Ethical &amp; Legal Constraints</h2>
 
@@ -737,7 +742,7 @@
             <table>
                 <thead><tr><th>Regulatory Framework</th><th>Key Constraint</th><th>Our Response</th></tr></thead>
                 <tbody>
-                    <tr><td><strong>EU AI Act (2024)</strong></td><td>AI in recruitment/vocational selection = High-Risk (Annex III). Article 5 prohibits workplace emotion recognition and biometric categorization.</td><td>Position as voluntary self-discovery and career exploration guidance — never as hiring/screening tool.</td></tr>
+                    <tr><td><strong>EU AI Act (2024)</strong></td><td>AI in recruitment/vocational selection = High-Risk (Annex III). Article 5 prohibits workplace emotion recognition and biometric categorization.</td><td>Position as voluntary self-discovery and career exploration guidance â€” never as hiring/screening tool.</td></tr>
                     <tr><td><strong>US ADA / EEOC (2024)</strong></td><td>EEG is classified as a medical examination. Pre-offer medical exams are prohibited. Cognitive profiles could inadvertently reveal neurodivergence (ADHD, learning disabilities).</td><td>Never frame as employment screening. System is for educational and personal career exploration only.</td></tr>
                     <tr><td><strong>GDPR (EU)</strong></td><td>EEG data is biometric/health data (special category under Article 9). Requires explicit informed consent and data minimization.</td><td>Require explicit opt-in consent. Minimize data retention. Process on-device where possible.</td></tr>
                 </tbody>
@@ -754,9 +759,9 @@
             <p class="text-sm leading-relaxed">There is a flawed assumption that biological neural signals are inherently superior or more "truthful" than behavioral task performance. If an individual solves complex math problems via an idiosyncratic cognitive strategy that does not produce standard parietal-frontal arithmetic EEG signatures, penalizing their STEM aptitude score would represent a severe failure of construct validity. The paper must acknowledge this limitation explicitly.</p>
         </div>
 
-        <!-- ═══════════════════════════════════════════════ -->
+        <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
         <!-- SECTION 9 -->
-        <!-- ═══════════════════════════════════════════════ -->
+        <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
         <div class="section-card" id="s9">
             <h2 class="text-xl font-bold mb4 flex items-center"><span class="section-number">9</span> Implementation Roadmap</h2>
 
@@ -765,7 +770,7 @@
                 <tbody>
                     <tr>
                         <td><strong>Phase 1</strong><br><span class="text-xs text-stone-500">DL Encoder</span></td>
-                        <td>Weeks 1–3</td>
+                        <td>Weeks 1â€“3</td>
                         <td>
                             <ul class="text-xs list-disc ml-3">
                                 <li>Implement Riemannian SPD encoder (BiMap/ReEig/LogEig) in PyTorch using <code>geoopt</code> or <code>geomstats</code></li>
@@ -779,7 +784,7 @@
                     </tr>
                     <tr>
                         <td><strong>Phase 2</strong><br><span class="text-xs text-stone-500">EDL Head</span></td>
-                        <td>Weeks 3–4</td>
+                        <td>Weeks 3â€“4</td>
                         <td>
                             <ul class="text-xs list-disc ml-3">
                                 <li>Replace softmax with EDL Dirichlet head</li>
@@ -793,7 +798,7 @@
                     </tr>
                     <tr>
                         <td><strong>Phase 3</strong><br><span class="text-xs text-stone-500">Behavioral Gating</span></td>
-                        <td>Weeks 4–5</td>
+                        <td>Weeks 4â€“5</td>
                         <td>
                             <ul class="text-xs list-disc ml-3">
                                 <li>Metadata embedding (RT, difficulty, accuracy)</li>
@@ -806,7 +811,7 @@
                     </tr>
                     <tr>
                         <td><strong>Phase 4</strong><br><span class="text-xs text-stone-500">Career Mapping</span></td>
-                        <td>Weeks 5–6</td>
+                        <td>Weeks 5â€“6</td>
                         <td>
                             <ul class="text-xs list-disc ml-3">
                                 <li>Build CHC alignment matrix</li>
@@ -819,7 +824,7 @@
                     </tr>
                     <tr>
                         <td><strong>Phase 5</strong><br><span class="text-xs text-stone-500">Ablation &amp; Paper</span></td>
-                        <td>Weeks 6–8</td>
+                        <td>Weeks 6â€“8</td>
                         <td>
                             <ul class="text-xs list-disc ml-3">
                                 <li>Complete ablation study matrix (6 experiments)</li>
@@ -837,49 +842,49 @@
                 <div class="kpi-card">
                     <div class="text-sm font-bold text-teal-800">Primary Target</div>
                     <div class="text-xs mt-1 text-stone-600">IEEE Trans. Neural Systems &amp; Rehab. Eng. (T-NSRE)</div>
-                    <div class="text-xs text-stone-400 mt-1">Impact Factor: 4.8 · Q1</div>
+                    <div class="text-xs text-stone-400 mt-1">Impact Factor: 4.8 Â· Q1</div>
                 </div>
                 <div class="kpi-card">
                     <div class="text-sm font-bold text-teal-800">Secondary Target</div>
                     <div class="text-xs mt-1 text-stone-600">Journal of Neural Engineering (JNE)</div>
-                    <div class="text-xs text-stone-400 mt-1">Impact Factor: 4.0 · Q1</div>
+                    <div class="text-xs text-stone-400 mt-1">Impact Factor: 4.0 Â· Q1</div>
                 </div>
                 <div class="kpi-card">
                     <div class="text-sm font-bold text-teal-800">High-Impact Alt.</div>
                     <div class="text-xs mt-1 text-stone-600">Neural Networks (Elsevier)</div>
-                    <div class="text-xs text-stone-400 mt-1">Impact Factor: 6.0 · Q1</div>
+                    <div class="text-xs text-stone-400 mt-1">Impact Factor: 6.0 Â· Q1</div>
                 </div>
             </div>
         </div>
 
-        <!-- ═══════════════════════════════════════════════ -->
+        <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
         <!-- SECTION 10 -->
-        <!-- ═══════════════════════════════════════════════ -->
+        <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
         <div class="section-card" id="s10">
             <h2 class="text-xl font-bold mb-4 flex items-center"><span class="section-number">10</span> References &amp; Citations</h2>
 
             <h3 class="font-semibold text-sm mt-4 mb-3 text-teal-700">Riemannian Geometry &amp; SPD Networks</h3>
-            <div class="ref-entry"><strong>Tibermacine, I. E., Russo, S., &amp; Napoli, C. (2026).</strong> Stiefel-SPD Manifold Graph Convolution for End-to-End EEG Learning. <em>IEEE Trans. Neural Systems and Rehabilitation Engineering</em>, 34, 595–606.</div>
+            <div class="ref-entry"><strong>Tibermacine, I. E., Russo, S., &amp; Napoli, C. (2026).</strong> Stiefel-SPD Manifold Graph Convolution for End-to-End EEG Learning. <em>IEEE Trans. Neural Systems and Rehabilitation Engineering</em>, 34, 595â€“606.</div>
             <div class="ref-entry"><strong>Jin, J., et al. (2026).</strong> RUNet: A Zero-Calibration Framework for Cross-Domain EEG Decoding via Riemannian and Unsupervised Representation Learning. <em>IEEE Trans. Biomedical Engineering</em>.</div>
             <div class="ref-entry"><strong>Gao, Y.-Z., &amp; Deng, H. (2026).</strong> Cross-subject EEG emotion recognition using Riemannian Graph Transformers with Geodesic Adversarial Adaptation. <em>Alexandria Engineering Journal</em>.</div>
             <div class="ref-entry"><strong>Kim, B. H., et al. (2023).</strong> A discriminative SPD feature learning approach on Riemannian manifolds for EEG classification. <em>Pattern Recognition</em>, 143, 109751.</div>
-            <div class="ref-entry"><strong>Shi, Y., et al. (2024).</strong> Multiclass Classification Framework of Motor Imagery EEG by Riemannian Geometry Networks. <em>IEEE J. Biomedical and Health Informatics</em>, 29, 935–947.</div>
+            <div class="ref-entry"><strong>Shi, Y., et al. (2024).</strong> Multiclass Classification Framework of Motor Imagery EEG by Riemannian Geometry Networks. <em>IEEE J. Biomedical and Health Informatics</em>, 29, 935â€“947.</div>
 
             <h3 class="font-semibold text-sm mt-5 mb-3 text-teal-700">Evidential Deep Learning &amp; Uncertainty Quantification</h3>
             <div class="ref-entry"><strong>Sensoy, M., Kaplan, L., &amp; Kandemir, M. (2018).</strong> Evidential Deep Learning to Quantify Classification Uncertainty. <em>Advances in Neural Information Processing Systems (NeurIPS)</em>.</div>
             <div class="ref-entry"><strong>Wu, et al. (2025).</strong> TRUEE: Reliable decision making on clinical EEG with multi-view learning and subjective logic for uncertainty quantification. <em>Expert Systems with Applications</em>.</div>
             <div class="ref-entry"><strong>Tveter, M., et al. (2026).</strong> Benchmarking Uncertainty Estimation Methods on EEG Classification Under Dataset Shifts. <em>Artificial Intelligence in Medicine</em>.</div>
             <div class="ref-entry"><strong>Pandey, D. S., et al. (2025).</strong> Generalized Regularized Evidential Deep Learning Models. <em>IEEE Trans. Pattern Analysis and Machine Intelligence</em>.</div>
-            <div class="ref-entry"><strong>Jürgens, M., et al. (2024).</strong> Is epistemic uncertainty faithfully represented by evidential deep learning methods? <em>International Conference on Machine Learning (ICML)</em>.</div>
+            <div class="ref-entry"><strong>JÃ¼rgens, M., et al. (2024).</strong> Is epistemic uncertainty faithfully represented by evidential deep learning methods? <em>International Conference on Machine Learning (ICML)</em>.</div>
             <div class="ref-entry"><strong>Guo, C., Pleiss, G., Sun, Y., &amp; Weinberger, K. Q. (2017).</strong> On Calibration of Modern Neural Networks. <em>ICML</em>.</div>
             <div class="ref-entry"><strong>Lakshminarayanan, B., Pritzel, A., &amp; Blundell, C. (2017).</strong> Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles. <em>NeurIPS</em>.</div>
             <div class="ref-entry"><strong>Han, T., et al. (2025).</strong> Flexible Evidential Deep Learning for Reliable Uncertainty Quantification. <em>NeurIPS</em>.</div>
             <div class="ref-entry"><strong>Manivannan, P., et al. (2024).</strong> Uncertainty Quantification for cross-subject Motor Imagery classification. <em>arXiv:2403.09228</em>.</div>
 
             <h3 class="font-semibold text-sm mt-5 mb-3 text-teal-700">Psychometrics &amp; Cognitive Ability Theory</h3>
-            <div class="ref-entry"><strong>McGrew, K. S. (2009).</strong> CHC theory and the human cognitive abilities project: Standing on the shoulders of the giants of psychometric intelligence research. <em>Intelligence</em>, 37(1), 1–10.</div>
-            <div class="ref-entry"><strong>Keith, T. Z., &amp; Reynolds, M. R. (2010).</strong> Cattell–Horn–Carroll abilities and cognitive tests: What we've learned from 20 years of research. <em>Psychology in the Schools</em>, 47(7), 635–650.</div>
-            <div class="ref-entry"><strong>Flanagan, D. P., &amp; Dixon, S. G. (2014).</strong> The Cattell‐Horn‐Carroll Theory of Cognitive Abilities. <em>Encyclopedia of Special Education</em>.</div>
+            <div class="ref-entry"><strong>McGrew, K. S. (2009).</strong> CHC theory and the human cognitive abilities project: Standing on the shoulders of the giants of psychometric intelligence research. <em>Intelligence</em>, 37(1), 1â€“10.</div>
+            <div class="ref-entry"><strong>Keith, T. Z., &amp; Reynolds, M. R. (2010).</strong> Cattellâ€“Hornâ€“Carroll abilities and cognitive tests: What we've learned from 20 years of research. <em>Psychology in the Schools</em>, 47(7), 635â€“650.</div>
+            <div class="ref-entry"><strong>Flanagan, D. P., &amp; Dixon, S. G. (2014).</strong> The Cattellâ€Hornâ€Carroll Theory of Cognitive Abilities. <em>Encyclopedia of Special Education</em>.</div>
             <div class="ref-entry"><strong>Gottfredson, L. (2003).</strong> The Challenge and Promise of Cognitive Career Assessment. <em>Journal of Career Assessment</em>.</div>
             <div class="ref-entry"><strong>Nye, C. D., et al. (2022).</strong> Cognitive Ability and Job Performance: Meta-analytic Evidence for the Validity of Narrow Cognitive Abilities. <em>J. Business and Psychology</em>.</div>
             <div class="ref-entry"><strong>Kato, K., &amp; Scherbaum, C. A. (2023).</strong> Cognitive Ability Tilt and Job Performance. <em>Journal of Intelligence</em>.</div>
@@ -891,8 +896,8 @@
             <div class="ref-entry"><strong>National Center for O*NET Development.</strong> O*NET Content Model: Cognitive Abilities Taxonomy &amp; Occupational Descriptors.</div>
 
             <h3 class="font-semibold text-sm mt-5 mb-3 text-teal-700">EEG Classification &amp; Brain-Computer Interfaces</h3>
-            <div class="ref-entry"><strong>Lawhern, V. J., et al. (2018).</strong> EEGNet: a compact convolutional neural network for EEG-based brain–computer interfaces. <em>Journal of Neural Engineering</em>.</div>
-            <div class="ref-entry"><strong>Lotte, F., et al. (2018).</strong> A review of classification algorithms for EEG-based brain–computer interfaces: a 10 year update. <em>Journal of Neural Engineering</em>.</div>
+            <div class="ref-entry"><strong>Lawhern, V. J., et al. (2018).</strong> EEGNet: a compact convolutional neural network for EEG-based brainâ€“computer interfaces. <em>Journal of Neural Engineering</em>.</div>
+            <div class="ref-entry"><strong>Lotte, F., et al. (2018).</strong> A review of classification algorithms for EEG-based brainâ€“computer interfaces: a 10 year update. <em>Journal of Neural Engineering</em>.</div>
             <div class="ref-entry"><strong>Jiang, S., et al. (2023).</strong> EEG-based analysis for pilots' at-risk cognitive competency identification using RF-CNN algorithm. <em>Frontiers in Neuroscience</em>.</div>
             <div class="ref-entry"><strong>Attarha, M., et al. (2026).</strong> Construct Validation of a Remote Brain Health Assessment Battery to Evaluate Vocational Aptitude. <em>JMIR Formative Research</em>.</div>
             <div class="ref-entry"><strong>Van Bueren, N. E. R., et al. (2026).</strong> Comparing aperiodic activity in consumer-grade and research-grade EEG: Reliability and association with mathematical ability. <em>Behavior Research Methods</em>.</div>
@@ -903,17 +908,31 @@
             <div class="ref-entry"><strong>Muhl, E., &amp; Andorno, R. (2023).</strong> Neurosurveillance in the workplace. <em>Frontiers in Human Dynamics</em>.</div>
             <div class="ref-entry"><strong>Bublitz, C., et al. (2024).</strong> Implications of the novel EU AI Act for neurotechnologies. <em>Neuron</em>.</div>
 
-            <h3 class="font-semibold text-sm mt-5 mb-3 text-teal-700">Validation Frameworks</h3>
-            <div class="ref-entry"><strong>Clayson, P. (2024).</strong> The Psychometric Upgrade Psychophysiology Needs. <em>Psychophysiology</em>.</div>
-            <div class="ref-entry"><strong>Clayson, P. (2025).</strong> Translating EEG Biomarkers into Clinical Tools: A Psychometric Blueprint. <em>American Psychologist</em>.</div>
-            <div class="ref-entry"><strong>Parmigiani, S., et al. (2022).</strong> Reliability and validity of TMS-EEG biomarkers. <em>Biol. Psychiatry CNNI</em>.</div>
+            <h3 class="font-semibold text-sm mt-5 mb-3 text-teal-700">CWT Scalogram Stacking &amp; Time-Frequency Representation</h3>
+            <div class="ref-entry"><strong>Mohanto, B., et al. (2026).</strong> EEG-based MDD detection using CWT scalogram stacking with VGG16 transfer learning. <em>Knowledge-Based Systems</em>, 312, 113085.</div>
+            <div class="ref-entry"><strong>Türk, Ö., &amp; Özerdem, M. S. (2019).</strong> Epilepsy detection by using scalogram-based convolutional neural network from EEG signals. <em>Brain Sciences</em>, 9(5), 115.</div>
+            <div class="ref-entry"><strong>Houssein, E. H., et al. (2024).</strong> TFCNN-BiGRU with self-attention for EEG emotion recognition via CWT scalogram. <em>Expert Systems with Applications</em>.</div>
+            <div class="ref-entry"><strong>Cohen, M. X. (2019).</strong> A better way to define and describe Morlet wavelets for time-frequency analysis. <em>NeuroImage</em>, 199, 81–86.</div>
+
+            <h3 class="font-semibold text-sm mt-5 mb-3 text-teal-700">Deep Embedded Clustering &amp; Label Noise</h3>
+            <div class="ref-entry"><strong>Xie, J., Girshick, R., &amp; Farhadi, A. (2016).</strong> Unsupervised Deep Embedding for Clustering Analysis. <em>ICML 2016</em>.</div>
+            <div class="ref-entry"><strong>Chakladar, D. D., et al. (2024).</strong> ISTDC: Integrated Spatio-Temporal Deep Clustering for EEG cognitive state detection. <em>Biomedical Signal Processing and Control</em>.</div>
+            <div class="ref-entry"><strong>Alzamili, A. K., et al. (2026).</strong> Ruzicka similarity-based clustering with PSO feature selection for EEG epilepsy detection. <em>Computer Methods and Programs in Biomedicine Update</em>, 7, 100180.</div>
+            <div class="ref-entry"><strong>Angkan, C., et al. (2025).</strong> Multidomain EEG Representation Learning with Orthogonal Mapping and Attention-Based Fusion. <em>IEEE Trans. Human-Machine Systems</em>.</div>
+
+            <h3 class="font-semibold text-sm mt-5 mb-3 text-teal-700">Digital Twin &amp; State-Space Cognitive Models</h3>
+            <div class="ref-entry"><strong>Takahashi, T., et al. (2025).</strong> A primate digital brain twin generalises to unseen individuals. <em>NPJ Digital Medicine</em>, 8, 201.</div>
+            <div class="ref-entry"><strong>Bina, A., et al. (2026).</strong> Personalized EEG digital twin with variational recurrent architecture. <em>Journal of Neural Engineering</em>.</div>
+            <div class="ref-entry"><strong>Soykan, M., et al. (2026).</strong> Online digital twin adaptation for consumer-grade EEG in cognitive monitoring. <em>IEEE Trans. Cognitive and Developmental Systems</em>.</div>
         </div>
 
         <!-- FOOTER -->
         <div class="text-center py-8 text-xs text-stone-400">
-            <p>CogProfile-Net Strategic Direction Report &bull; August 2026</p>
+            <p>CogProfile-Net v2 — Strategic Research Direction Report &bull; August 2026</p>
+            <p class="mt-1">Architecture implemented: CWT Scalogram · Riemannian SPD · DEC Clustering · EDL · Digital Twin</p>
         </div>
 
     </main>
 </body>
 </html>
+
