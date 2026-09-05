@@ -10,36 +10,26 @@ for cell in nb['cells']:
     new_source = []
     for line in cell['source']:
 
-        # Fix A: N_FREQ 64 → 32 in config line
-        if 'N_FREQ=64' in line:
-            line = line.replace('N_FREQ=64', 'N_FREQ=32')
-            print(f'[Fix A] N_FREQ set to 32: {line.strip()}')
+        # Revert N_FREQ 32 → 64 (this was cutting model capacity in half)
+        if 'N_FREQ=32' in line and 'SFREQ' in line:
+            line = line.replace('N_FREQ=32', 'N_FREQ=64')
+            print(f'[Revert A] N_FREQ restored to 64: {line.strip()}')
             fixes += 1
 
-        # Fix B: scalogram compute batch 512 → 128
-        if 'compute_all_scalograms(X_win, filters_fft, batch=512)' in line:
-            line = line.replace('batch=512', 'batch=128')
-            print(f'[Fix B] scalogram batch 512->128: {line.strip()}')
-            fixes += 1
-        if 'def compute_all_scalograms(X_win, filters_fft, batch=512)' in line:
-            line = line.replace('batch=512', 'batch=128')
-            print(f'[Fix B2] default batch 512->128 in function def')
+        # Revert ScalogramCNN F=32 → F=64
+        if 'def __init__(self, C=14, F=32, T=128' in line:
+            line = line.replace('F=32', 'F=64')
+            print(f'[Revert C] ScalogramCNN F restored to 64')
             fixes += 1
 
-        # Fix C: ScalogramCNN F=64 → F=32 in class default
-        if 'def __init__(self, C=14, F=64, T=128' in line:
-            line = line.replace('F=64', 'F=32')
-            print(f'[Fix C] ScalogramCNN F default 64->32')
+        # Revert sanity check tensor F=32 → F=64
+        if 'torch.randn(4,14,32,128)' in line:
+            line = line.replace('torch.randn(4,14,32,128)', 'torch.randn(4,14,64,128)')
+            print(f'[Revert D] sanity check tensor restored to 64')
             fixes += 1
 
-        # Fix D: model sanity check tensor F=64 → F=32
-        if 'torch.randn(4,14,64,128)' in line:
-            line = line.replace('torch.randn(4,14,64,128)', 'torch.randn(4,14,32,128)')
-            print(f'[Fix D] sanity check tensor 64->32')
-            fixes += 1
-        if 'torch.zeros(1,C,F,T)' in line and 'F=32' not in ''.join(new_source[-5:]):
-            # This computes flat size dynamically so no change needed
-            pass
+        # KEEP batch=128 in compute_all_scalograms (this is the correct GPU fix)
+        # Do NOT revert this — it solves the 7GB GPU tensor without hurting accuracy
 
         new_source.append(line)
     cell['source'] = new_source
@@ -48,6 +38,5 @@ with open('CogProfile_Net_v2_Colab-1.ipynb', 'w', encoding='utf-8') as f:
     json.dump(nb, f, indent=1, ensure_ascii=False)
 
 print(f'\nDone — {fixes} fix(es) applied.')
-print('Memory impact:')
-print('  GPU peak during CWT: ~7GB -> ~875MB (batch 128 x N_FREQ 32)')
-print('  SCALOGRAMS RAM: ~2.6GB -> ~650MB')
+print('batch=128 in compute_all_scalograms is KEPT (correct GPU fix).')
+print('N_FREQ=64 restored (model capacity back to 1.27M params).')
