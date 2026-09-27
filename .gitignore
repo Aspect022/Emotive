@@ -26,3 +26,24 @@ Thumbs.db
 data/processed/
 Data/
 
+# Benchmark — generated at runtime (too large for git)
+eeg_cache/
+bench_out/
+logs/*.log
+
+# Numpy memmap / large feature dumps
+*.dat
+*.npy
+*.npy.bak
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+*.ipynb
+
+# Benchmark result JSONs (keep leaderboard.md, not raw JSON)
+bench_out/
+Results2/
+
+# Scratch / output text files
+scripts/*.txt
+

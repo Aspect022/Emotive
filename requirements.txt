@@ -1,0 +1,12 @@
+# CogProfile-Net — GPU benchmark requirements
+# NOTE: torch is installed by start.py (CUDA version auto-detected).
+#       Do not add torch here.
+
+numpy>=1.24
+scipy>=1.11
+scikit-learn>=1.4
+PyWavelets>=1.6
+antropy>=0.1.6
+tqdm>=4.66
+pandas>=2.1
+matplotlib>=3.8
