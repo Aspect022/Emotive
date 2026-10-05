@@ -26,6 +26,11 @@ Thumbs.db
 data/processed/
 Data/
 
+# EEG data folder — put X_raw.npy, y_task.npy, participant_ids.npy here
+# Files are ignored (too large for git), but the folder is tracked via .gitkeep
+data/*
+!data/.gitkeep
+
 # Benchmark — generated at runtime (too large for git)
 eeg_cache/
 bench_out/

@@ -5,7 +5,7 @@ import argparse
 
 def get_args():
     p = argparse.ArgumentParser(description="CogProfile-Net benchmark")
-    p.add_argument("--data_dir",  default=".",           help="X_raw.npy, y_task.npy, participant_ids.npy")
+    p.add_argument("--data_dir",  default="./data",       help="Folder containing X_raw.npy, y_task.npy, participant_ids.npy")
     p.add_argument("--cache_dir", default="./eeg_cache")
     p.add_argument("--out_dir",   default="./bench_out")
     p.add_argument("--archs",     nargs="+", default=["A","B","C","D"])
